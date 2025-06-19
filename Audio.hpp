@@ -12,12 +12,14 @@ using sample = double;
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <sstream>
 
 
 /// Abstract base class for Audio
 class Audio {
 protected:
 //    std::vector<double> samples;
+//    TODO string name
     float sampleRate;
     double duration;
     size_t sampleSize;
@@ -51,7 +53,7 @@ public:
 
     virtual Audio *clone() const = 0;
 };
-
+//TODO add operator << for all Audio types
 class AudioCreator {
 protected:
 //    command that will be read from file/console

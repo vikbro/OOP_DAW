@@ -17,6 +17,7 @@ struct SineGenerator {
     }
 };
 
+//Similar to Effect, but for generators
 template<typename Generator>
 class GeneratorAudio : public Audio {
 private:

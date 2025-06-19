@@ -44,6 +44,7 @@ struct FadeIn {
             : fadeDuration(duration), sampleRate(rate) {}
 
     double operator()(std::size_t i, std::size_t totalSamples) const {
+//        TODO check the logic of this operation
         std::size_t fadeSamples = static_cast<std::size_t>(fadeDuration * sampleRate);
         if (i >= fadeSamples) return 1.0;
         return static_cast<double>(i) / fadeSamples;
@@ -70,6 +71,7 @@ struct FadeOut {
 template<typename EffectOperation>
 class Effect : public Audio {
 private:
+	//TODO. Should I use a reference to Audio instead of a pointer? Expensive copy
     Audio *base;
     EffectOperation operation;//copy
 
@@ -82,7 +84,6 @@ public:
 
     ~Effect() {
         delete base;
-
     }
 
     Audio *clone() const override;
@@ -93,18 +94,17 @@ public:
 
     std::ostream &printToStream(std::ostream &out) const override;
 
-
 };
 
 template<typename EffectOperation>
 std::ostream &Effect<EffectOperation>::printToStream(std::ostream &out) const {
-    out << "EffectAudio over: ";
+//    out << "Effect over: ";
     return base->printToStream(out);
 }
 
 template<typename EffectOperation>
-double &Effect<EffectOperation>::operator[](std::size_t) {
-    throw std::logic_error("EffectAudio does not support sample modification.");
+double &Effect<EffectOperation>::operator[](std::size_t i) {
+    throw std::logic_error("Effect does not support sample modification.");
 }
 
 template<typename EffectOperation>
@@ -148,11 +148,30 @@ Effect<EffectOperation>::Effect(const Audio *input, EffectOperation op) :base(in
 
 }
 
-class EffectCreator : AudioCreator {
-public:
-    EffectCreator();
+// Specialization for FadeIn
+//TODO I might not need this specializatoins
+template<>
+inline double Effect<FadeIn>::operator[](std::size_t i) const {
+    // The FadeIn operation needs current index and total samples.
+    // (*base)[i] gives the sample value.
+    // operation(i, base->getSampleSize()) gives the fade multiplier.
+    // Note: The FadeIn struct uses the sampleRate passed to its constructor for fadeSamples calculation.
+    // The base->getSampleSize() is used here as totalSamples for the multiplier logic.
+    return (*base)[i] * operation(i, base->getSampleSize());
+}
 
-    Audio *createAudio(std::istream &in) const override;
+// Specialization for FadeOut
+//TODO I might not need this specializatoins
+template<>
+inline double Effect<FadeOut>::operator[](std::size_t i) const {
+    // Similar to FadeIn, provides current index and total samples to the operation.
+    return (*base)[i] * operation(i, base->getSampleSize());
+}
+
+class EffectCreator : public AudioCreator { // Made inheritance public
+public:
+    explicit EffectCreator(const char* command = "EFCT"); // Added explicit and default argument
+    Audio* createAudio(std::istream& in) const override;
 };
 
 

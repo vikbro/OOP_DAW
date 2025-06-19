@@ -1,25 +1,59 @@
-#include <iostream>
+//#include <iostream>
 #include "Silence.hpp"
 #include "FileAudio.hpp"
+#include "Effect.hpp"
 #include "AudioFactory.hpp"
 
 int main() {
+    //Make some basic test
     try {
-        std::ofstream oFile("SONG.txt");
-        oFile << "15.5 " << "17 " << "3 " << 1.5 << " " << 2 << " " << 4;
+        std::ofstream oFile("PESEN.txt");
+        oFile << "30 " << "4 " << "5 " << 10 << " " << 10 << " " << 10 << " " << 10 << " " << 10;
         oFile.close();
+
+//        std::cout << std::filesystem::current_path() << std::endl;
 
         Silence s(10, 5);
         s.printToStream(std::cout);
 
-        Audio *file = AudioFactory::getInstance().createAudio(std::cin);
-        file->printToStream(std::cout);
+//        std::string cmd = "FILE SONG.txt";
+//        std::stringstream cmdStream(cmd);
+//        std::string cmd = "FILE SONG.txt";
+        std::stringstream cmdStream("FILE SONG.txt");
 
-        Audio *s2 = AudioFactory::getInstance().createAudio(std::cin);
+        Audio *file = AudioFactory::getInstance().createAudio(cmdStream);
 
-        s2->printToStream(std::cout);
+//        file->printToStream(std::cout);
+
+//        Audio *s2 = AudioFactory::getInstance().createAudio(std::cin);
+
+//        s2->printToStream(std::cout);
         std::cout << "Hello, World!" << std::endl;
-        delete s2;
+//        delete s2;
+
+
+        Amplify amplify{10};
+        FadeIn fadeIn{1,2};
+        FadeOut fadeOut{1,2};
+
+		//Normalize normalize(*file, 1.0);
+
+		file->printToStream(std::cout);
+
+        Effect<FadeIn> ef1(file,fadeIn);
+        Effect<FadeOut> ef2(&ef1,fadeOut);
+        ef1.printToStream(std::cout);
+        std::cout << std::endl;
+        ef2.printToStream(std::cout);
+        std::cout << std::endl;
+
+
+        const auto& constEf1 = ef2;
+        for (int i = 0; i < constEf1.getSampleSize(); ++i) {
+            std::cout << constEf1[i] << " ";
+        }
+
+		delete file;
         return 0;
 
     } catch (const std::exception &ex) {

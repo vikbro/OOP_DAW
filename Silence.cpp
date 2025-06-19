@@ -50,7 +50,8 @@ Audio *SilenceCreator::createAudio(std::istream &in) const {
 
     } catch (const std::exception &ex) {
         std::cerr << ex.what() << '\n';
-    }catch (...){
+        throw;
+    } catch (...) {
         throw;
     }
 }
