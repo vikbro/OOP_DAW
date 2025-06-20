@@ -14,7 +14,6 @@ using sample = double;
 #include <string>
 #include <sstream>
 
-
 /// Abstract base class for Audio
 class Audio {
 protected:

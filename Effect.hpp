@@ -15,7 +15,7 @@ public:
     Amplify(double factor) : factor(factor) {};
 
     double operator()(double s) const {
-        return s * 2.0f;
+        return s * factor;
     }
 };
 
@@ -71,8 +71,8 @@ struct FadeOut {
 template<typename EffectOperation>
 class Effect : public Audio {
 private:
-	//TODO. Should I use a reference to Audio instead of a pointer? Expensive copy
-    Audio *base;
+    //TODO. Should I use a reference to Audio instead of a pointer? Expensive copy
+    const Audio *base;
     EffectOperation operation;//copy
 
 public:
@@ -98,8 +98,12 @@ public:
 
 template<typename EffectOperation>
 std::ostream &Effect<EffectOperation>::printToStream(std::ostream &out) const {
-//    out << "Effect over: ";
-    return base->printToStream(out);
+    out << this->getDuration() << '\t' << this->getSampleRate() << '\t' << this->getSampleSize() << '\t';
+    for (size_t i = 0; i < this->getSampleSize(); ++i) {
+        out << (*this)[i] << ' '; // Use the effect's own operator[] const
+    }
+    out << std::endl;
+    return out;
 }
 
 template<typename EffectOperation>

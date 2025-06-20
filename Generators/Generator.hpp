@@ -8,6 +8,14 @@
 #include "../Audio.hpp"
 #include <cmath>
 
+struct MixGenerator{
+
+};
+
+struct RepeatGenerator{
+
+};
+
 struct SineGenerator {
     float frequency = 440.0;
     float rate = 44100.0;

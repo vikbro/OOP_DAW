@@ -12,6 +12,9 @@ private:
     size_t currentSize;
     const char* fileName;
 
+private:
+    static void writeAsBytes(std::ostream& file, int value, int byteSize);
+
 public:
     FileAudio(const char* fileName) ;
 //    FileAudio(const std::string& fileName);
@@ -21,8 +24,15 @@ public:
 
     FileAudio* clone() const override;
 
+    void readTXT(const char* fileName);
+    void readWAV(const char* fileName);
+
+    void writeTXT(const char* fileName) const;
+    static void writeWAV(const char* fileName);
+
     std::ostream &printToStream(std::ostream &out) const override;
     void print() const override;
+
 };
 
 

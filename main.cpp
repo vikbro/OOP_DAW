@@ -12,7 +12,7 @@ int main() {
         oFile.close();
 
 //        std::cout << std::filesystem::current_path() << std::endl;
-
+        FileAudio::writeWAV("sin.wav");
         Silence s(10, 5);
         s.printToStream(std::cout);
 
@@ -33,19 +33,22 @@ int main() {
 
 
         Amplify amplify{10};
-        FadeIn fadeIn{1,2};
-        FadeOut fadeOut{1,2};
+        FadeIn fadeIn{2,2};
+        FadeOut fadeOut{2,2};
 
-		//Normalize normalize(*file, 1.0);
+		Normalize normalize(*file, 1.0);
 
 		file->printToStream(std::cout);
 
         Effect<FadeIn> ef1(file,fadeIn);
         Effect<FadeOut> ef2(&ef1,fadeOut);
+        Effect<Normalize> efN(&ef2,normalize);
         ef1.printToStream(std::cout);
-        std::cout << std::endl;
+//        std::cout << std::endl;
+
         ef2.printToStream(std::cout);
-        std::cout << std::endl;
+//        std::cout << std::endl;
+        efN.printToStream(std::cout);
 
 
         const auto& constEf1 = ef2;
