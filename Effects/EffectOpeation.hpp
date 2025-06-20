@@ -1,7 +1,3 @@
-//
-// Created by vikso on 30/05/2025.
-//
-
 #ifndef DAW_EFFECTOPEATION_HPP
 #define DAW_EFFECTOPEATION_HPP
 

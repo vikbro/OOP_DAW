@@ -1,7 +1,3 @@
-//
-// Created by vikso on 30/05/2025.
-//
-
 #include "Utils.hpp"
 #include <cstring>
 

@@ -1,0 +1,96 @@
+\hypertarget{class_effect_creator}{}\doxysection{Effect\+Creator Class Reference}
+\label{class_effect_creator}\index{EffectCreator@{EffectCreator}}
+
+
+Creator class for \mbox{\hyperlink{class_effect}{Effect}} objects.  
+
+
+
+
+{\ttfamily \#include $<$Effect.\+hpp$>$}
+
+
+
+Inheritance diagram for Effect\+Creator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{class_effect_creator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Effect\+Creator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{class_effect_creator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_effect_creator_af79a862bd8134e24a7bbc48463a8210b}{Effect\+Creator}} (const char $\ast$command=\char`\"{}EFCT\char`\"{})
+\begin{DoxyCompactList}\small\item\em Constructs an \mbox{\hyperlink{class_effect_creator}{Effect\+Creator}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_audio}{Audio}} $\ast$ \mbox{\hyperlink{class_effect_creator_af45c2d4c45424a6082f4e3b4571379ab}{create\+Audio}} (std\+::istream \&in) const override
+\begin{DoxyCompactList}\small\item\em Creates an \mbox{\hyperlink{class_effect}{Effect}} \mbox{\hyperlink{class_audio}{Audio}} object from an input stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Creator class for \mbox{\hyperlink{class_effect}{Effect}} objects. 
+
+Inherits from \mbox{\hyperlink{class_audio_creator}{Audio\+Creator}} to allow \mbox{\hyperlink{class_effect}{Effect}} creation through the \mbox{\hyperlink{class_audio_factory}{Audio\+Factory}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_effect_creator_af79a862bd8134e24a7bbc48463a8210b}\label{class_effect_creator_af79a862bd8134e24a7bbc48463a8210b}} 
+\index{EffectCreator@{EffectCreator}!EffectCreator@{EffectCreator}}
+\index{EffectCreator@{EffectCreator}!EffectCreator@{EffectCreator}}
+\doxysubsubsection{\texorpdfstring{EffectCreator()}{EffectCreator()}}
+{\footnotesize\ttfamily Effect\+Creator\+::\+Effect\+Creator (\begin{DoxyParamCaption}\item[{const char $\ast$}]{command = {\ttfamily \char`\"{}EFCT\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs an \mbox{\hyperlink{class_effect_creator}{Effect\+Creator}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command string this creator will respond to (default is \char`\"{}\+EFCT\char`\"{}). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_effect_creator_af45c2d4c45424a6082f4e3b4571379ab}\label{class_effect_creator_af45c2d4c45424a6082f4e3b4571379ab}} 
+\index{EffectCreator@{EffectCreator}!createAudio@{createAudio}}
+\index{createAudio@{createAudio}!EffectCreator@{EffectCreator}}
+\doxysubsubsection{\texorpdfstring{createAudio()}{createAudio()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_audio}{Audio}} $\ast$ Effect\+Creator\+::create\+Audio (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates an \mbox{\hyperlink{class_effect}{Effect}} \mbox{\hyperlink{class_audio}{Audio}} object from an input stream. 
+
+This method is expected to read effect parameters and the base audio information from the stream to construct an appropriate \mbox{\hyperlink{class_effect}{Effect}} object. 
+\begin{DoxyParams}{Parameters}
+{\em in} & The input stream. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created \mbox{\hyperlink{class_audio}{Audio}} (\mbox{\hyperlink{class_effect}{Effect}}) object. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The actual implementation of how effects are specified and created from the stream is defined in the corresponding .cpp file. 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{class_audio_creator_a8d21e771266f35c040ba07f1c6d9fbbb}{Audio\+Creator}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_effect_8hpp}{Effect.\+hpp}}\item 
+Effect.\+cpp\end{DoxyCompactItemize}

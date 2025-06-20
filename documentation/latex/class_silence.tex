@@ -1,0 +1,180 @@
+\hypertarget{class_silence}{}\doxysection{Silence Class Reference}
+\label{class_silence}\index{Silence@{Silence}}
+
+
+Represents a segment of silent audio.  
+
+
+
+
+{\ttfamily \#include $<$Silence.\+hpp$>$}
+
+
+
+Inheritance diagram for Silence\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=129pt]{class_silence__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Silence\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=129pt]{class_silence__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_silence_a5eb03b4d423ba9850e157788dde43260}{Silence}} (double \mbox{\hyperlink{class_audio_a5f38535c4fd5dde1892a1d6795361183}{duration}}, float \mbox{\hyperlink{class_audio_a78374f1a2d27089913544f95db64839b}{sample\+Rate}})
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{class_silence}{Silence}} object. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_silence_a88309f7169b9ac651768cab4e4a5d409}{operator\mbox{[}$\,$\mbox{]}}} (size\+\_\+t index) const override
+\begin{DoxyCompactList}\small\item\em Accesses a sample at the given index (const version). \end{DoxyCompactList}\item 
+double \& \mbox{\hyperlink{class_silence_ac3fbb94e2d538e29635e767e40163569}{operator\mbox{[}$\,$\mbox{]}}} (size\+\_\+t index) override
+\begin{DoxyCompactList}\small\item\em Accesses a sample at the given index (non-\/const version). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_silence}{Silence}} $\ast$ \mbox{\hyperlink{class_silence_acdc4afd399ade1f5b5cbdf37c75b2c90}{clone}} () const override
+\begin{DoxyCompactList}\small\item\em Clones the \mbox{\hyperlink{class_silence}{Silence}} object. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{class_silence_a16544e086e3a8d92bf559b17773a8035}{print\+To\+Stream}} (std\+::ostream \&out) const override
+\begin{DoxyCompactList}\small\item\em Prints the silence data to an output stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_silence_a9d01d952f3ea934758c43eb421698647}{print}} () const override
+\begin{DoxyCompactList}\small\item\em Prints information about the silence object to the standard output. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents a segment of silent audio. 
+
+This class inherits from {\ttfamily \mbox{\hyperlink{class_audio}{Audio}}} and provides an implementation where all samples have a value of 0.\+0. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_silence_a5eb03b4d423ba9850e157788dde43260}\label{class_silence_a5eb03b4d423ba9850e157788dde43260}} 
+\index{Silence@{Silence}!Silence@{Silence}}
+\index{Silence@{Silence}!Silence@{Silence}}
+\doxysubsubsection{\texorpdfstring{Silence()}{Silence()}}
+{\footnotesize\ttfamily Silence\+::\+Silence (\begin{DoxyParamCaption}\item[{double}]{duration,  }\item[{float}]{sample\+Rate }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{class_silence}{Silence}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em duration} & The duration of the silence in seconds. \\
+\hline
+{\em sample\+Rate} & The sample rate of the audio in Hz. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_silence_acdc4afd399ade1f5b5cbdf37c75b2c90}\label{class_silence_acdc4afd399ade1f5b5cbdf37c75b2c90}} 
+\index{Silence@{Silence}!clone@{clone}}
+\index{clone@{clone}!Silence@{Silence}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_silence}{Silence}} $\ast$ Silence\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Clones the \mbox{\hyperlink{class_silence}{Silence}} object. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to a new \mbox{\hyperlink{class_silence}{Silence}} object with the same duration and sample rate. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_audio_a25bd410b8534c38fa82be5292d8fb6c6}{Audio}}.
+
+\mbox{\Hypertarget{class_silence_a88309f7169b9ac651768cab4e4a5d409}\label{class_silence_a88309f7169b9ac651768cab4e4a5d409}} 
+\index{Silence@{Silence}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Silence@{Silence}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Silence\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Accesses a sample at the given index (const version). 
+
+For \mbox{\hyperlink{class_silence}{Silence}} objects, this always returns 0.\+0, provided the index is valid. 
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the sample. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Always 0.\+0 for silence. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if index is out of bounds (behavior inherited from \mbox{\hyperlink{class_audio}{Audio}} or should be checked). \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_silence_ac3fbb94e2d538e29635e767e40163569}\label{class_silence_ac3fbb94e2d538e29635e767e40163569}} 
+\index{Silence@{Silence}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Silence@{Silence}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double \& Silence\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Accesses a sample at the given index (non-\/const version). 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & as silence is immutable. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The sample index (unused). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to a sample (never actually returns due to exception). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_silence_a9d01d952f3ea934758c43eb421698647}\label{class_silence_a9d01d952f3ea934758c43eb421698647}} 
+\index{Silence@{Silence}!print@{print}}
+\index{print@{print}!Silence@{Silence}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Silence\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Prints information about the silence object to the standard output. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_audio_af85335ff0799239ef8db01462684e07c}{Audio}}.
+
+\mbox{\Hypertarget{class_silence_a16544e086e3a8d92bf559b17773a8035}\label{class_silence_a16544e086e3a8d92bf559b17773a8035}} 
+\index{Silence@{Silence}!printToStream@{printToStream}}
+\index{printToStream@{printToStream}!Silence@{Silence}}
+\doxysubsubsection{\texorpdfstring{printToStream()}{printToStream()}}
+{\footnotesize\ttfamily std\+::ostream \& Silence\+::print\+To\+Stream (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Prints the silence data to an output stream. 
+
+This typically involves printing metadata indicating it\textquotesingle{}s silence, its duration, and sample rate. 
+\begin{DoxyParams}{Parameters}
+{\em out} & The output stream. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the output stream. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_audio_a9e9377836628310e61c97070797f5a8f}{Audio}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_silence_8hpp}{Silence.\+hpp}}\item 
+Silence.\+cpp\end{DoxyCompactItemize}

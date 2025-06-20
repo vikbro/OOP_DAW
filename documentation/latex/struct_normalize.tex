@@ -1,0 +1,76 @@
+\hypertarget{struct_normalize}{}\doxysection{Normalize Struct Reference}
+\label{struct_normalize}\index{Normalize@{Normalize}}
+
+
+Functor to normalize an audio signal to a target amplitude.  
+
+
+
+
+{\ttfamily \#include $<$Effect.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_normalize_a399c820a1d02f5c1e723f399af201df3}{Normalize}} (const \mbox{\hyperlink{class_audio}{Audio}} \&a, double target\+Amp=1.\+0)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{struct_normalize}{Normalize}} effect. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct_normalize_a757d6eeb388567fb0c157e17b19d26b2}{operator()}} (double s) const
+\begin{DoxyCompactList}\small\item\em Applies the normalization gain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_normalize_aa497de9ae97f163546ca769890088f4b}\label{struct_normalize_aa497de9ae97f163546ca769890088f4b}} 
+double {\bfseries gain} = 1.\+0
+\begin{DoxyCompactList}\small\item\em The gain to apply to each sample. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_normalize_a4a865ec5e52cda27b9e05e1fb693c916}\label{struct_normalize_a4a865ec5e52cda27b9e05e1fb693c916}} 
+double {\bfseries target}
+\begin{DoxyCompactList}\small\item\em The target peak amplitude. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functor to normalize an audio signal to a target amplitude. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_normalize_a399c820a1d02f5c1e723f399af201df3}\label{struct_normalize_a399c820a1d02f5c1e723f399af201df3}} 
+\index{Normalize@{Normalize}!Normalize@{Normalize}}
+\index{Normalize@{Normalize}!Normalize@{Normalize}}
+\doxysubsubsection{\texorpdfstring{Normalize()}{Normalize()}}
+{\footnotesize\ttfamily Normalize\+::\+Normalize (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_audio}{Audio}} \&}]{a,  }\item[{double}]{target\+Amp = {\ttfamily 1.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a \mbox{\hyperlink{struct_normalize}{Normalize}} effect. 
+
+Calculates the gain needed to bring the peak amplitude of the audio to the target amplitude. 
+\begin{DoxyParams}{Parameters}
+{\em a} & The input \mbox{\hyperlink{class_audio}{Audio}} object to analyze for normalization. \\
+\hline
+{\em target\+Amp} & The target peak amplitude (default is 1.\+0). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_normalize_a757d6eeb388567fb0c157e17b19d26b2}\label{struct_normalize_a757d6eeb388567fb0c157e17b19d26b2}} 
+\index{Normalize@{Normalize}!operator()@{operator()}}
+\index{operator()@{operator()}!Normalize@{Normalize}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily double Normalize\+::operator() (\begin{DoxyParamCaption}\item[{double}]{s }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Applies the normalization gain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The input sample. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The normalized sample. 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_effect_8hpp}{Effect.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,111 @@
+\hypertarget{class_audio_creator}{}\doxysection{Audio\+Creator Class Reference}
+\label{class_audio_creator}\index{AudioCreator@{AudioCreator}}
+
+
+Abstract base class for creating \mbox{\hyperlink{class_audio}{Audio}} objects.  
+
+
+
+
+{\ttfamily \#include $<$Audio.\+hpp$>$}
+
+
+
+Inheritance diagram for Audio\+Creator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_audio_creator__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_audio_creator_a491629735afed78e8eb1f59006f291a5}{Audio\+Creator}} (const char $\ast$command)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_audio_creator}{Audio\+Creator}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_audio_creator_aa79ce7e828652214067903aebb4aead3}\label{class_audio_creator_aa79ce7e828652214067903aebb4aead3}} 
+virtual {\bfseries $\sim$\+Audio\+Creator} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for \mbox{\hyperlink{class_audio_creator}{Audio\+Creator}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_audio_creator_ad1b3b5177a51e09f76ba030e734a90bb}{supports\+Audio}} (const std\+::string \&s) const
+\begin{DoxyCompactList}\small\item\em Checks if this creator supports creating audio from the given string. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_audio}{Audio}} $\ast$ \mbox{\hyperlink{class_audio_creator_a8d21e771266f35c040ba07f1c6d9fbbb}{create\+Audio}} (std\+::istream \&in) const =0
+\begin{DoxyCompactList}\small\item\em Creates an \mbox{\hyperlink{class_audio}{Audio}} object from an input stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_audio_creator_a04f68e5e97f7c087467a4ee7710135be}\label{class_audio_creator_a04f68e5e97f7c087467a4ee7710135be}} 
+std\+::string {\bfseries create\+Command}
+\begin{DoxyCompactList}\small\item\em The command string used to identify the type of audio to create. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class for creating \mbox{\hyperlink{class_audio}{Audio}} objects. 
+
+This class provides an interface for creating different types of \mbox{\hyperlink{class_audio}{Audio}} objects based on a command string. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_audio_creator_a491629735afed78e8eb1f59006f291a5}\label{class_audio_creator_a491629735afed78e8eb1f59006f291a5}} 
+\index{AudioCreator@{AudioCreator}!AudioCreator@{AudioCreator}}
+\index{AudioCreator@{AudioCreator}!AudioCreator@{AudioCreator}}
+\doxysubsubsection{\texorpdfstring{AudioCreator()}{AudioCreator()}}
+{\footnotesize\ttfamily Audio\+Creator\+::\+Audio\+Creator (\begin{DoxyParamCaption}\item[{const char $\ast$}]{command }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_audio_creator}{Audio\+Creator}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command string that this creator will handle. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_audio_creator_a8d21e771266f35c040ba07f1c6d9fbbb}\label{class_audio_creator_a8d21e771266f35c040ba07f1c6d9fbbb}} 
+\index{AudioCreator@{AudioCreator}!createAudio@{createAudio}}
+\index{createAudio@{createAudio}!AudioCreator@{AudioCreator}}
+\doxysubsubsection{\texorpdfstring{createAudio()}{createAudio()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_audio}{Audio}} $\ast$ Audio\+Creator\+::create\+Audio (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Creates an \mbox{\hyperlink{class_audio}{Audio}} object from an input stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & The input stream to read audio data from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created \mbox{\hyperlink{class_audio}{Audio}} object. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_effect_creator_af45c2d4c45424a6082f4e3b4571379ab}{Effect\+Creator}}, \mbox{\hyperlink{class_file_audio_creator_a0e5eb65a08b971058cf86cf272dd322d}{File\+Audio\+Creator}}, and \mbox{\hyperlink{class_silence_creator_a89a1c5d965b1254e58725d378e25b945}{Silence\+Creator}}.
+
+\mbox{\Hypertarget{class_audio_creator_ad1b3b5177a51e09f76ba030e734a90bb}\label{class_audio_creator_ad1b3b5177a51e09f76ba030e734a90bb}} 
+\index{AudioCreator@{AudioCreator}!supportsAudio@{supportsAudio}}
+\index{supportsAudio@{supportsAudio}!AudioCreator@{AudioCreator}}
+\doxysubsubsection{\texorpdfstring{supportsAudio()}{supportsAudio()}}
+{\footnotesize\ttfamily bool Audio\+Creator\+::supports\+Audio (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption}) const}
+
+
+
+Checks if this creator supports creating audio from the given string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The string to check (usually a command or file extension). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this creator can handle the given string, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_audio_8hpp}{Audio.\+hpp}}\item 
+Audio.\+cpp\end{DoxyCompactItemize}

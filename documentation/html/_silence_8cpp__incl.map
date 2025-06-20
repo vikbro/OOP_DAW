@@ -1,0 +1,10 @@
+<map id="Silence.cpp" name="Silence.cpp">
+<area shape="rect" id="node1" title=" " coords="167,5,257,32"/>
+<area shape="rect" id="node2" href="$_silence_8hpp.html" title="Defines the Silence class for representing silent audio segments and its creator." coords="167,80,257,107"/>
+<area shape="rect" id="node3" href="$_audio_8hpp.html" title="Defines the Audio and AudioCreator classes for audio processing." coords="172,155,252,181"/>
+<area shape="rect" id="node4" title=" " coords="5,229,61,256"/>
+<area shape="rect" id="node5" title=" " coords="86,229,151,256"/>
+<area shape="rect" id="node6" title=" " coords="176,229,248,256"/>
+<area shape="rect" id="node7" title=" " coords="273,229,327,256"/>
+<area shape="rect" id="node8" title=" " coords="352,229,421,256"/>
+</map>

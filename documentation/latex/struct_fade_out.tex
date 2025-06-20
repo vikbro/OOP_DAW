@@ -1,0 +1,78 @@
+\hypertarget{struct_fade_out}{}\doxysection{Fade\+Out Struct Reference}
+\label{struct_fade_out}\index{FadeOut@{FadeOut}}
+
+
+Functor to apply a fade-\/out effect.  
+
+
+
+
+{\ttfamily \#include $<$Effect.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_fade_out_a9af0b1864c7c808e4b55df1e88878585}{Fade\+Out}} (double duration, double rate)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{struct_fade_out}{Fade\+Out}} effect. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct_fade_out_a9fcd43c1f5a0bbe0eaa3a682aa2b27b0}{operator()}} (std\+::size\+\_\+t i, std\+::size\+\_\+t total\+Samples) const
+\begin{DoxyCompactList}\small\item\em Calculates the fade-\/out multiplier for a given sample. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_fade_out_a02b5557be4e60df45518c2bb0172505c}\label{struct_fade_out_a02b5557be4e60df45518c2bb0172505c}} 
+double {\bfseries fade\+Duration}
+\begin{DoxyCompactList}\small\item\em Duration of the fade in seconds. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_fade_out_a6c513ecfed594ace912d162d3622b7f5}\label{struct_fade_out_a6c513ecfed594ace912d162d3622b7f5}} 
+double {\bfseries sample\+Rate}
+\begin{DoxyCompactList}\small\item\em Sample rate of the audio. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functor to apply a fade-\/out effect. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_fade_out_a9af0b1864c7c808e4b55df1e88878585}\label{struct_fade_out_a9af0b1864c7c808e4b55df1e88878585}} 
+\index{FadeOut@{FadeOut}!FadeOut@{FadeOut}}
+\index{FadeOut@{FadeOut}!FadeOut@{FadeOut}}
+\doxysubsubsection{\texorpdfstring{FadeOut()}{FadeOut()}}
+{\footnotesize\ttfamily Fade\+Out\+::\+Fade\+Out (\begin{DoxyParamCaption}\item[{double}]{duration,  }\item[{double}]{rate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a \mbox{\hyperlink{struct_fade_out}{Fade\+Out}} effect. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em duration} & Duration of the fade in seconds. \\
+\hline
+{\em rate} & Sample rate of the audio. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_fade_out_a9fcd43c1f5a0bbe0eaa3a682aa2b27b0}\label{struct_fade_out_a9fcd43c1f5a0bbe0eaa3a682aa2b27b0}} 
+\index{FadeOut@{FadeOut}!operator()@{operator()}}
+\index{operator()@{operator()}!FadeOut@{FadeOut}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily double Fade\+Out\+::operator() (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{std\+::size\+\_\+t}]{total\+Samples }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculates the fade-\/out multiplier for a given sample. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The current sample index. \\
+\hline
+{\em total\+Samples} & The total number of samples in the audio. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The fade-\/out multiplier (0.\+0 to 1.\+0). 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_effect_8hpp}{Effect.\+hpp}}\end{DoxyCompactItemize}

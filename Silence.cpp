@@ -1,7 +1,3 @@
-//
-// Created by vikso on 22/05/2025.
-//
-
 #include "Silence.hpp"
 
 Silence::Silence(double duration, float sampleRate) : Audio() {

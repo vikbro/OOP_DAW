@@ -1,0 +1,30 @@
+\hypertarget{_amplify_effect_8hpp_source}{}\doxysection{Amplify\+Effect.\+hpp}
+\label{_amplify_effect_8hpp_source}\index{Effects/AmplifyEffect.hpp@{Effects/AmplifyEffect.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by vikso on 30/05/2025.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef DAW\_AMPLIFYEFFECT\_HPP}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define DAW\_AMPLIFYEFFECT\_HPP}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}EffectOpeation.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{comment}{//TODO MAKE A EFFECT CREATOR LIKE IM AUDIO CREATOR}}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_amplify_effect}{AmplifyEffect}} : \mbox{\hyperlink{class_effect_operation}{EffectOperation}} \{}
+\DoxyCodeLine{11 \textcolor{keyword}{private}:}
+\DoxyCodeLine{12     \textcolor{keywordtype}{double} factor;}
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{14     \mbox{\hyperlink{class_amplify_effect}{AmplifyEffect}}(\textcolor{keywordtype}{double} f);}
+\DoxyCodeLine{15 \textcolor{comment}{//    double apply(double sample) const override;}}
+\DoxyCodeLine{16 \textcolor{comment}{//        Implementation of the logic of AmplifyEffect}}
+\DoxyCodeLine{17     \textcolor{keywordtype}{double} operator()(\textcolor{keywordtype}{double} factor) \textcolor{keyword}{const};}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_effect_operation}{EffectOperation}}* clone() \textcolor{keyword}{const override};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{comment}{//static AmplifyEffect \_\_}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DAW\_AMPLIFYEFFECT\_HPP}}
+
+\end{DoxyCode}

@@ -1,19 +1,10 @@
-//
-// Created by vikso on 24/05/2025.
-//
-
 #include "Effect.hpp"
 #include "AudioFactory.hpp" // For AudioFactory::getInstance()
-// "Audio.hpp" is included by "Effect.hpp", so not strictly needed again here
-#include <string>           // For std::string
-#include <stdexcept>        // For std::runtime_error
-#include <istream>          // For std::istream
 #include <limits>           // For std::numeric_limits (for consuming line)
 
 EffectCreator::EffectCreator(const char* command) : AudioCreator(command) {
     // The base class AudioCreator(command) constructor handles registration
     // with the AudioFactory. No additional code needed here for registration.
-    // If the command string "effect" is not passed, it will use the default from the header.
 }
 
 Audio* EffectCreator::createAudio(std::istream& in) const {
@@ -28,14 +19,10 @@ Audio* EffectCreator::createAudio(std::istream& in) const {
     }
 
     Audio* baseAudio = nullptr;
-
+//TODO try find a better looking code fix
     try {
         if (effectType == "AMPL") {
             double factor;
-            // Note: The Amplify struct in Effect.hpp has an issue:
-            // Its operator() uses a hardcoded 2.0f instead of the factor.
-            // This creator correctly reads and passes the factor, but the
-            // Amplify struct itself needs to be fixed for it to work as intended.
             if (!(in >> factor)) {
                 in.clear(); in.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 throw std::runtime_error("EffectCreator: Missing or invalid amplify factor.");
@@ -97,8 +84,4 @@ Audio* EffectCreator::createAudio(std::istream& in) const {
     }
 }
 
-// Static instance of EffectCreator to trigger self-registration with AudioFactory.
-// The EffectCreator constructor calls the AudioCreator base constructor,
-// which in turn calls AudioFactory::getInstance().registerAudio(this).
-// The default command "effect" will be used from EffectCreator's constructor.
-static EffectCreator globalEffectCreatorInstance;
+static EffectCreator __;

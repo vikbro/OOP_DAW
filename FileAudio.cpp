@@ -1,16 +1,6 @@
-//
-// Created by vikso on 22/05/2025.
-//
-
 #include "FileAudio.hpp"
-#include <cmath>
-//#include <vector>      // For std::vector
 #include <fstream>     // For std::ifstream, std::ofstream
-//#include <iostream>    // For std::cerr, std::endl (though often via Audio.hpp or FileAudio.hpp)
-//#include <stdexcept>   // For std::runtime_error, std::out_of_range
 #include <string>      // For std::string
-// #include <algorithm> // Removed as per instruction
-//#include <cctype>      // For std::tolower
 
 // Helper function to get file extension
 static std::string getFileExtension(const std::string& filePath) {
@@ -32,7 +22,7 @@ FileAudio::FileAudio() : Audio(), fileName(nullptr) {
     // Duration, sampleRate, sampleSize will be 0 as per Audio default constructor.
 }
 
-//Make a decorator for different file formats
+//TODO maybe make a factory and creators for different files/
 FileAudio::FileAudio(const char *fileNameParam) : Audio(), fileName(nullptr) { // Initialize fileName to nullptr
     if (!fileNameParam) {
         throw std::runtime_error("File name is null.");
@@ -40,31 +30,11 @@ FileAudio::FileAudio(const char *fileNameParam) : Audio(), fileName(nullptr) { /
     std::string filePathStr = fileNameParam;
     std::string extension = getFileExtension(filePathStr);
 
-    // Store original fileName if needed, current design sets it in readTXT/readWAV
-    // For now, this->fileName member in FileAudio is set to nullptr or by specific read methods.
-    // The prompt suggests initializing to nullptr.
-    // Let's ensure the member `this->fileName` (the const char*) gets the original fileNameParam
-    // if we want FileAudio to "own" its name from construction.
-    // However, readTXT and readWAV also take char* and set this->fileName.
-    // Let's stick to the prompt's implication: this->fileName is set by read methods or remains nullptr.
-    // The FileAudio(const char* fn) in previous state initialized this->fileName = fn.
-    // Let's keep that for now if the file is supported.
-
     if (extension == "txt") {
         this->readTXT(fileNameParam); // readTXT will set this->fileName
     } else if (extension == "wav") {
         this->readWAV(fileNameParam); // readWAV will set this->fileName
     } else {
-        // If we want to store the filename even if unsupported:
-        // size_t len = strlen(fileNameParam);
-        // char* nameCopy = new char[len + 1];
-        // strcpy(nameCopy, fileNameParam); // Need to manage this memory
-        // this->fileName = nameCopy; // Example if deep copy needed and owned by FileAudio
-        // For now, this->fileName remains nullptr if format is unsupported by constructor delegation.
-        // The individual readTXT/readWAV methods were updated to set this->fileName.
-        // So if delegation happens, this->fileName will be set.
-        // If no delegation (unsupported), this->fileName remains as initialized (nullptr).
-
         if (extension.empty()) {
             throw std::runtime_error("Filename has no extension: " + filePathStr);
         } else {
@@ -95,12 +65,6 @@ void FileAudio::writeTXT(const char *fileName) const {
     }
 
     try {
-        // Write header information
-        // Use getters for consistency, though direct access to duration, sampleRate, sampleSize is also possible
-        // if they are public/protected in Audio or FileAudio itself.
-        // Assuming base class members are accessible or getters are used.
-        // NOTE: The original implementation of writeTXT used 'file << ...' not 'out << ...'
-        // 'out' is the parameter name for printToStream, not writeTXT. Correcting this.
         file << this->getDuration() << " " << this->getSampleRate() << " " << this->getSampleSize() << "\n";
 
         // Write samples
@@ -136,20 +100,7 @@ double &FileAudio::operator[](size_t index) {
 }
 
 FileAudio *FileAudio::clone() const {
-    // This should ideally use a FileAudio copy constructor.
-    // If 'fileName' was std::string, default copy ctor would be fine.
-    // If 'fileName' is 'const char*', this is a shallow copy of the pointer.
-    // The new constructor FileAudio(const Audio&) is not suitable for cloning a FileAudio
-    // unless we explicitly want to strip file-specific info or treat it as a generic Audio.
-    // A proper FileAudio copy constructor would be:
-    // FileAudio(const FileAudio& other) : Audio(other), fileName(nullptr), samples(other.samples) {
-    //   if (other.fileName) {
-    //     // Allocate and copy string if deep copy is needed for fileName
-    //   }
-    //   // Base class 'Audio' members (duration, sampleRate, sampleSize) are copied by Audio(other)
-    // }
-    // For now, using the existing behavior:
-    return new FileAudio(*this); // Relies on implicit or explicit FileAudio copy constructor
+    return new FileAudio(*this);
 }
 
 std::ostream &FileAudio::printToStream(std::ostream &out) const {
@@ -443,11 +394,5 @@ Audio *FileAudioCreator::createAudio(std::istream &in) const {
         throw;
     }
 }
-
-// Need to ensure this helper can also write int16_t if it's different from int
-// For now, the existing writeAsBytes takes int, which is fine for int16_t if cast properly before call or if it handles various int sizes.
-// The current implementation of writeAsBytes(std::ostream &file, int value, int byteSize)
-// correctly writes 'byteSize' bytes of the 'value'. So casting int16_t to int before calling is safe.
-
 
 static FileAudioCreator __;

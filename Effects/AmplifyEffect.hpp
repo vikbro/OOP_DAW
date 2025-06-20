@@ -1,7 +1,3 @@
-//
-// Created by vikso on 30/05/2025.
-//
-
 #ifndef DAW_AMPLIFYEFFECT_HPP
 #define DAW_AMPLIFYEFFECT_HPP
 #include "EffectOpeation.hpp"

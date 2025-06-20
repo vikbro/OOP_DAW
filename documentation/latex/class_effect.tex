@@ -1,0 +1,383 @@
+\hypertarget{class_effect}{}\doxysection{Effect\texorpdfstring{$<$}{<} Effect\+Operation \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_effect}\index{Effect$<$ EffectOperation $>$@{Effect$<$ EffectOperation $>$}}
+
+
+A template class that applies an effect operation to an \mbox{\hyperlink{class_audio}{Audio}} object.  
+
+
+
+
+{\ttfamily \#include $<$Effect.\+hpp$>$}
+
+
+
+Inheritance diagram for Effect\texorpdfstring{$<$}{<} Effect\+Operation \texorpdfstring{$>$}{>}\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{class_effect__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Effect\texorpdfstring{$<$}{<} Effect\+Operation \texorpdfstring{$>$}{>}\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{class_effect__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_effect_ac343896ad0679ebabd43a9ebe9013030}{Effect}} (const \mbox{\hyperlink{class_audio}{Audio}} $\ast$input, \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}} op)
+\begin{DoxyCompactList}\small\item\em Constructs an \mbox{\hyperlink{class_effect}{Effect}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_effect_ab7b6fed683d22596f44f1cb6144adfc5}{Effect}} (const \mbox{\hyperlink{class_effect}{Effect}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_effect}{Effect}} \& \mbox{\hyperlink{class_effect_aec17e91be2e324b9bc83ff766e201e72}{operator=}} (const \mbox{\hyperlink{class_effect}{Effect}} \&other)
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_effect_a5e65a40650d54b7e1f437e1843187929}\label{class_effect_a5e65a40650d54b7e1f437e1843187929}} 
+{\bfseries $\sim$\+Effect} ()
+\begin{DoxyCompactList}\small\item\em Destructor. Deletes the cloned base \mbox{\hyperlink{class_audio}{Audio}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_audio}{Audio}} $\ast$ \mbox{\hyperlink{class_effect_a28b3802bdcc5c291686b4c2bc954d34b}{clone}} () const override
+\begin{DoxyCompactList}\small\item\em Clones the \mbox{\hyperlink{class_effect}{Effect}} object. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_effect_a7b86de1d8a9bf64d508dafc7ab3c081e}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t i) const override
+\begin{DoxyCompactList}\small\item\em Accesses a sample with the effect applied (const version). \end{DoxyCompactList}\item 
+double \& \mbox{\hyperlink{class_effect_a3ff953b943f4d0688433f79f81e751b5}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t i) override
+\begin{DoxyCompactList}\small\item\em Accesses a sample (non-\/const version). \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{class_effect_a110c5d67c1488c58f5d6601a6f13590e}{print\+To\+Stream}} (std\+::ostream \&out) const override
+\begin{DoxyCompactList}\small\item\em Prints the effect\textquotesingle{}s audio data to an output stream. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_effect_a5ce9043baa46f6f2f53c4d791da95145}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Specialization of the const array access operator for \mbox{\hyperlink{struct_fade_in}{Fade\+In}} effects. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_effect_ae88353aa6ade268fda78723cee624ca1}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Specialization of the const array access operator for \mbox{\hyperlink{struct_fade_out}{Fade\+Out}} effects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}}$>$\newline
+class Effect$<$ Effect\+Operation $>$}
+A template class that applies an effect operation to an \mbox{\hyperlink{class_audio}{Audio}} object. 
+
+This class acts as a decorator around an existing \mbox{\hyperlink{class_audio}{Audio}} object. It takes an {\ttfamily \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}}} (a functor like \mbox{\hyperlink{struct_amplify}{Amplify}}, \mbox{\hyperlink{struct_normalize}{Normalize}}, \mbox{\hyperlink{struct_fade_in}{Fade\+In}}, \mbox{\hyperlink{struct_fade_out}{Fade\+Out}}) and applies it to the samples of the base audio.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}}} & The type of effect to apply. It must be a callable object that takes a double (sample) and returns a double (modified sample), or for specific effects like Fade\+In/\+Fade\+Out, it might take (sample\+\_\+index, total\+\_\+samples) and return a multiplier. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_effect_ac343896ad0679ebabd43a9ebe9013030}\label{class_effect_ac343896ad0679ebabd43a9ebe9013030}} 
+\index{Effect$<$ EffectOperation $>$@{Effect$<$ EffectOperation $>$}!Effect@{Effect}}
+\index{Effect@{Effect}!Effect$<$ EffectOperation $>$@{Effect$<$ EffectOperation $>$}}
+\doxysubsubsection{\texorpdfstring{Effect()}{Effect()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}} $>$ \\
+\mbox{\hyperlink{class_effect}{Effect}}$<$ \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}} $>$\mbox{\hyperlink{class_effect}{\+::\+Effect}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_audio}{Audio}} $\ast$}]{input,  }\item[{\mbox{\hyperlink{class_effect_operation}{Effect\+Operation}}}]{op }\end{DoxyParamCaption})}
+
+
+
+Constructs an \mbox{\hyperlink{class_effect}{Effect}} object. 
+
+Implementation of the constructor taking a base \mbox{\hyperlink{class_audio}{Audio}} and an operation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & A pointer to the base \mbox{\hyperlink{class_audio}{Audio}} object. The \mbox{\hyperlink{class_effect}{Effect}} class will take ownership by cloning this object. \\
+\hline
+{\em op} & The effect operation to apply.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}}} & The type of the effect operation. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Pointer to the base \mbox{\hyperlink{class_audio}{Audio}} object. This object will be cloned. \\
+\hline
+{\em op} & The effect operation functor. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_effect_ab7b6fed683d22596f44f1cb6144adfc5}\label{class_effect_ab7b6fed683d22596f44f1cb6144adfc5}} 
+\index{Effect$<$ EffectOperation $>$@{Effect$<$ EffectOperation $>$}!Effect@{Effect}}
+\index{Effect@{Effect}!Effect$<$ EffectOperation $>$@{Effect$<$ EffectOperation $>$}}
+\doxysubsubsection{\texorpdfstring{Effect()}{Effect()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}} $>$ \\
+\mbox{\hyperlink{class_effect}{Effect}}$<$ \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}} $>$\mbox{\hyperlink{class_effect}{\+::\+Effect}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_effect}{Effect}}$<$ \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}} $>$ \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Copy constructor. 
+
+Implementation of the copy constructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \mbox{\hyperlink{class_effect}{Effect}} object to copy.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}}} & The type of the effect operation. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \mbox{\hyperlink{class_effect}{Effect}} object to copy from. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_effect_a28b3802bdcc5c291686b4c2bc954d34b}\label{class_effect_a28b3802bdcc5c291686b4c2bc954d34b}} 
+\index{Effect$<$ EffectOperation $>$@{Effect$<$ EffectOperation $>$}!clone@{clone}}
+\index{clone@{clone}!Effect$<$ EffectOperation $>$@{Effect$<$ EffectOperation $>$}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}} $>$ \\
+\mbox{\hyperlink{class_audio}{Audio}} $\ast$ \mbox{\hyperlink{class_effect}{Effect}}$<$ \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}} $>$\+::clone\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Clones the \mbox{\hyperlink{class_effect}{Effect}} object. 
+
+Implementation of the clone method.
+
+\begin{DoxyReturn}{Returns}
+A pointer to a new \mbox{\hyperlink{class_effect}{Effect}} object, which is a deep copy of this one.
+\end{DoxyReturn}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}}} & The type of the effect operation. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a new, dynamically allocated copy of this \mbox{\hyperlink{class_effect}{Effect}}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_audio_a25bd410b8534c38fa82be5292d8fb6c6}{Audio}}.
+
+\mbox{\Hypertarget{class_effect_aec17e91be2e324b9bc83ff766e201e72}\label{class_effect_aec17e91be2e324b9bc83ff766e201e72}} 
+\index{Effect$<$ EffectOperation $>$@{Effect$<$ EffectOperation $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Effect$<$ EffectOperation $>$@{Effect$<$ EffectOperation $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}} $>$ \\
+\mbox{\hyperlink{class_effect}{Effect}}$<$ \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}} $>$ \& \mbox{\hyperlink{class_effect}{Effect}}$<$ \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}} $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_effect}{Effect}}$<$ \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}} $>$ \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Assignment operator. 
+
+Implementation of the assignment operator.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \mbox{\hyperlink{class_effect}{Effect}} object to assign from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to this \mbox{\hyperlink{class_effect}{Effect}} object. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This operator performs a deep copy of the base audio data. Consider exception safety\+: if {\ttfamily other.\+base-\/\texorpdfstring{$>$}{>}\mbox{\hyperlink{class_effect_a28b3802bdcc5c291686b4c2bc954d34b}{clone()}}} throws, {\ttfamily base} is not deleted, which is acceptable as the object state remains valid.
+\end{DoxyNote}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}}} & The type of the effect operation. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \mbox{\hyperlink{class_effect}{Effect}} object to assign from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to this \mbox{\hyperlink{class_effect}{Effect}} object. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Regarding exception safety for {\ttfamily other.\+base-\/\texorpdfstring{$>$}{>}\mbox{\hyperlink{class_effect_a28b3802bdcc5c291686b4c2bc954d34b}{clone()}}}\+: If it throws, {\ttfamily this-\/\texorpdfstring{$>$}{>}base} is not yet deleted, and the object remains in its original valid state. The old {\ttfamily base} is only deleted after the new {\ttfamily base} (temp) is successfully cloned. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_effect_a5ce9043baa46f6f2f53c4d791da95145}\label{class_effect_a5ce9043baa46f6f2f53c4d791da95145}} 
+\index{Effect$<$ EffectOperation $>$@{Effect$<$ EffectOperation $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Effect$<$ EffectOperation $>$@{Effect$<$ EffectOperation $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily double \mbox{\hyperlink{class_effect}{Effect}}$<$ \mbox{\hyperlink{struct_fade_in}{Fade\+In}} $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Specialization of the const array access operator for \mbox{\hyperlink{struct_fade_in}{Fade\+In}} effects. 
+
+This operator applies the fade-\/in logic, which depends on the current sample index and the total number of samples. 
+\begin{DoxyParams}{Parameters}
+{\em i} & The current sample index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The sample value after applying the fade-\/in effect. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This specialization is provided because Fade\+In\+::operator() has a different signature (takes index and total samples) compared to simpler effects like \mbox{\hyperlink{struct_amplify}{Amplify}}. 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{class_audio_a1cc612a87753e71cf8b061fd9ef5c6a4}{Audio}}.
+
+\mbox{\Hypertarget{class_effect_ae88353aa6ade268fda78723cee624ca1}\label{class_effect_ae88353aa6ade268fda78723cee624ca1}} 
+\index{Effect$<$ EffectOperation $>$@{Effect$<$ EffectOperation $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Effect$<$ EffectOperation $>$@{Effect$<$ EffectOperation $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily double \mbox{\hyperlink{class_effect}{Effect}}$<$ \mbox{\hyperlink{struct_fade_out}{Fade\+Out}} $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Specialization of the const array access operator for \mbox{\hyperlink{struct_fade_out}{Fade\+Out}} effects. 
+
+This operator applies the fade-\/out logic, which depends on the current sample index and the total number of samples. 
+\begin{DoxyParams}{Parameters}
+{\em i} & The current sample index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The sample value after applying the fade-\/out effect. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This specialization is provided because Fade\+Out\+::operator() has a different signature (takes index and total samples) compared to simpler effects like \mbox{\hyperlink{struct_amplify}{Amplify}}. 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{class_audio_a1cc612a87753e71cf8b061fd9ef5c6a4}{Audio}}.
+
+\mbox{\Hypertarget{class_effect_a7b86de1d8a9bf64d508dafc7ab3c081e}\label{class_effect_a7b86de1d8a9bf64d508dafc7ab3c081e}} 
+\index{Effect$<$ EffectOperation $>$@{Effect$<$ EffectOperation $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Effect$<$ EffectOperation $>$@{Effect$<$ EffectOperation $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}} $>$ \\
+double \mbox{\hyperlink{class_effect}{Effect}}$<$ \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}} $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Accesses a sample with the effect applied (const version). 
+
+Default implementation of the const array access operator.
+
+For most effects, this applies {\ttfamily operation(base\+\_\+sample)}. For effects like Fade\+In/\+Fade\+Out, specializations are provided. 
+\begin{DoxyParams}{Parameters}
+{\em i} & The sample index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the sample at index {\ttfamily i} after the effect is applied.
+\end{DoxyReturn}
+This version is used for effects that operate on a single sample value (e.\+g., \mbox{\hyperlink{struct_amplify}{Amplify}}, \mbox{\hyperlink{struct_normalize}{Normalize}}). 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}}} & The type of the effect operation. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The sample index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The processed sample value. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_audio_a1cc612a87753e71cf8b061fd9ef5c6a4}{Audio}}.
+
+\mbox{\Hypertarget{class_effect_a3ff953b943f4d0688433f79f81e751b5}\label{class_effect_a3ff953b943f4d0688433f79f81e751b5}} 
+\index{Effect$<$ EffectOperation $>$@{Effect$<$ EffectOperation $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Effect$<$ EffectOperation $>$@{Effect$<$ EffectOperation $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}} $>$ \\
+double \& \mbox{\hyperlink{class_effect}{Effect}}$<$ \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}} $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Accesses a sample (non-\/const version). 
+
+Implementation of the non-\/const array access operator.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & as effects are non-\/modifiable once created. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The sample index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the sample at index {\ttfamily i}.
+\end{DoxyReturn}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}}} & The type of the effect operation. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The sample index (unused). \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & Always, as effects are designed to be immutable post-\/creation. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+A reference to a double (never actually returns due to exception). 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_audio_a23ea2682f83f5a91efe1497cdd2a4fe3}{Audio}}.
+
+\mbox{\Hypertarget{class_effect_a110c5d67c1488c58f5d6601a6f13590e}\label{class_effect_a110c5d67c1488c58f5d6601a6f13590e}} 
+\index{Effect$<$ EffectOperation $>$@{Effect$<$ EffectOperation $>$}!printToStream@{printToStream}}
+\index{printToStream@{printToStream}!Effect$<$ EffectOperation $>$@{Effect$<$ EffectOperation $>$}}
+\doxysubsubsection{\texorpdfstring{printToStream()}{printToStream()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}} $>$ \\
+std\+::ostream \& \mbox{\hyperlink{class_effect}{Effect}}$<$ \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}} $>$\+::print\+To\+Stream (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Prints the effect\textquotesingle{}s audio data to an output stream. 
+
+Implementation of print\+To\+Stream for the \mbox{\hyperlink{class_effect}{Effect}} class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & The output stream. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the output stream.
+\end{DoxyReturn}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em \mbox{\hyperlink{class_effect_operation}{Effect\+Operation}}} & The type of the effect operation. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em out} & The output stream. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the output stream. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_audio_a9e9377836628310e61c97070797f5a8f}{Audio}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_effect_8hpp}{Effect.\+hpp}}\end{DoxyCompactItemize}

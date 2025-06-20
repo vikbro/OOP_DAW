@@ -1,0 +1,49 @@
+\hypertarget{class_track}{}\doxysection{Track Class Reference}
+\label{class_track}\index{Track@{Track}}
+
+
+Represents a single track within an audio project.  
+
+
+
+
+{\ttfamily \#include $<$Track.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_track_aa6ba088d47e0c1e71937d422f1877fb7}{apply\+Effect}} ()
+\begin{DoxyCompactList}\small\item\em Applies one or more audio effects to the track or its constituent audio clips. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a single track within an audio project. 
+
+A track consists of a sequence of {\ttfamily \mbox{\hyperlink{class_audio}{Audio}}} objects (clips or segments). It might also have track-\/specific properties like volume, pan, effects, etc. (though not all are explicitly defined in this version).
+
+\begin{DoxyNote}{Note}
+TODO\+: Consider whether {\ttfamily \mbox{\hyperlink{class_track}{Track}}} itself should also inherit from {\ttfamily \mbox{\hyperlink{class_audio}{Audio}}}. This would allow tracks to be treated as composite audio objects, which could be useful for sub-\/mixing or hierarchical project structures. 
+
+TODO\+: Ensure that a {\ttfamily \mbox{\hyperlink{class_track}{Track}}} cannot contain another {\ttfamily \mbox{\hyperlink{class_track}{Track}}} directly if the design intends a flat list of audio clips per track. If hierarchical tracks are desired, this needs careful design. 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_track_aa6ba088d47e0c1e71937d422f1877fb7}\label{class_track_aa6ba088d47e0c1e71937d422f1877fb7}} 
+\index{Track@{Track}!applyEffect@{applyEffect}}
+\index{applyEffect@{applyEffect}!Track@{Track}}
+\doxysubsubsection{\texorpdfstring{applyEffect()}{applyEffect()}}
+{\footnotesize\ttfamily void Track\+::apply\+Effect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Applies one or more audio effects to the track or its constituent audio clips. 
+
+The specific effects and how they are applied (e.\+g., to individual clips, the entire track output, or as insert/send effects) would be defined in the implementation. This might involve iterating through audio clips and wrapping them with \mbox{\hyperlink{class_effect}{Effect}} objects, or applying effects during a mixing process. \begin{DoxyNote}{Note}
+The implementation details (which effects, how they are configured, etc.) are not specified in this header. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_track_8hpp}{Track.\+hpp}}\end{DoxyCompactItemize}

@@ -1,7 +1,3 @@
-//
-// Created by vikso on 30/05/2025.
-//
-
 #ifndef DAW_FADEINOPERATION_HPP
 #define DAW_FADEINOPERATION_HPP
 #include "EffectOpeation.hpp"

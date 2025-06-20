@@ -1,0 +1,112 @@
+\hypertarget{class_project}{}\doxysection{Project Class Reference}
+\label{class_project}\index{Project@{Project}}
+
+
+Represents an audio project, which consists of multiple tracks.  
+
+
+
+
+{\ttfamily \#include $<$Project.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_project_adb5924f4e030db342a6aa6e340763fc9}{Project}} (double frequency, int track\+Amount)
+\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{class_project}{Project}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_project_ad4082ca4c1174695c916e719ee1f24fe}{save}} (const char $\ast$project\+Name)
+\begin{DoxyCompactList}\small\item\em Saves the current state of the project. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_project_a635d87eded64a2a55a5b7be52157ea60}{load}} (const char \&project\+Name)
+\begin{DoxyCompactList}\small\item\em Loads a project from a specified location. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_project}{Project}} \mbox{\hyperlink{class_project_a32f34140d3781ef8b3fd01c4c62060ac}{create\+New}} (const char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Creates a new project with a given name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an audio project, which consists of multiple tracks. 
+
+The \mbox{\hyperlink{class_project}{Project}} class manages a collection of {\ttfamily \mbox{\hyperlink{class_track}{Track}}} objects and provides functionalities for creating, saving, and loading projects. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_project_adb5924f4e030db342a6aa6e340763fc9}\label{class_project_adb5924f4e030db342a6aa6e340763fc9}} 
+\index{Project@{Project}!Project@{Project}}
+\index{Project@{Project}!Project@{Project}}
+\doxysubsubsection{\texorpdfstring{Project()}{Project()}}
+{\footnotesize\ttfamily Project\+::\+Project (\begin{DoxyParamCaption}\item[{double}]{frequency,  }\item[{int}]{track\+Amount }\end{DoxyParamCaption})}
+
+
+
+Constructs a new \mbox{\hyperlink{class_project}{Project}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frequency} & The master sample rate for the project (e.\+g., 44100 Hz). This might be used to initialize tracks or project-\/wide settings. \\
+\hline
+{\em track\+Amount} & The initial number of tracks to create in the project. Tracks might be initialized with default settings based on the project\textquotesingle{}s frequency. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_project_a32f34140d3781ef8b3fd01c4c62060ac}\label{class_project_a32f34140d3781ef8b3fd01c4c62060ac}} 
+\index{Project@{Project}!createNew@{createNew}}
+\index{createNew@{createNew}!Project@{Project}}
+\doxysubsubsection{\texorpdfstring{createNew()}{createNew()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_project}{Project}} Project\+::create\+New (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a new project with a given name. 
+
+This static factory method might handle setting up a default project structure or preparing storage associated with the project name. 
+\begin{DoxyParams}{Parameters}
+{\em name} & The name for the new project. This could be a file path or an identifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{class_project}{Project}} object initialized for a new project. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The implementation details (e.\+g., if it creates files on disk immediately) are not defined here. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_project_a635d87eded64a2a55a5b7be52157ea60}\label{class_project_a635d87eded64a2a55a5b7be52157ea60}} 
+\index{Project@{Project}!load@{load}}
+\index{load@{load}!Project@{Project}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily void Project\+::load (\begin{DoxyParamCaption}\item[{const char \&}]{project\+Name }\end{DoxyParamCaption})}
+
+
+
+Loads a project from a specified location. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em project\+Name} & The name (often a file path) from which to load the project. This method would deserialize project data and reconstruct the tracks. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The parameter type {\ttfamily const char\& project\+Name} seems unusual for a C-\/style string (filename) and is likely intended to be {\ttfamily const char$\ast$ project\+Name}. This should be reviewed. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_project_ad4082ca4c1174695c916e719ee1f24fe}\label{class_project_ad4082ca4c1174695c916e719ee1f24fe}} 
+\index{Project@{Project}!save@{save}}
+\index{save@{save}!Project@{Project}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily void Project\+::save (\begin{DoxyParamCaption}\item[{const char $\ast$}]{project\+Name }\end{DoxyParamCaption})}
+
+
+
+Saves the current state of the project. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em project\+Name} & The name (often a file path) to which the project should be saved. This method would serialize all tracks and project-\/specific data. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_project_8hpp}{Project.\+hpp}}\end{DoxyCompactItemize}

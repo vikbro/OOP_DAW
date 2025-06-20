@@ -1,0 +1,59 @@
+\hypertarget{struct_sine_generator}{}\doxysection{Sine\+Generator Struct Reference}
+\label{struct_sine_generator}\index{SineGenerator@{SineGenerator}}
+
+
+Functor to generate a sine wave.  
+
+
+
+
+{\ttfamily \#include $<$Generator.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+sample \mbox{\hyperlink{struct_sine_generator_aad33568e3e4d138d227464c449f82411}{operator()}} (std\+::size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Generates the sine wave sample at the given index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_sine_generator_a5e2f5906e9ab6ba2e71c0d913aea8fb4}\label{struct_sine_generator_a5e2f5906e9ab6ba2e71c0d913aea8fb4}} 
+float {\bfseries frequency} = 440.\+0
+\begin{DoxyCompactList}\small\item\em Frequency of the sine wave in Hz. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_sine_generator_a7c8e919bf78c8d94cd1a34c93be1cfba}\label{struct_sine_generator_a7c8e919bf78c8d94cd1a34c93be1cfba}} 
+float {\bfseries rate} = 44100.\+0
+\begin{DoxyCompactList}\small\item\em Sample rate in Hz. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functor to generate a sine wave. 
+
+This struct, when called with a sample index, produces the corresponding sample value for a sine wave of a given frequency and sample rate. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_sine_generator_aad33568e3e4d138d227464c449f82411}\label{struct_sine_generator_aad33568e3e4d138d227464c449f82411}} 
+\index{SineGenerator@{SineGenerator}!operator()@{operator()}}
+\index{operator()@{operator()}!SineGenerator@{SineGenerator}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily sample Sine\+Generator\+::operator() (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generates the sine wave sample at the given index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The sample index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the sine wave sample at index {\ttfamily i}. The value is in the range \mbox{[}-\/1.\+0, 1.\+0\mbox{]}. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Uses a common approximation for PI. 
+\end{DoxyNote}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Generators/\mbox{\hyperlink{_generator_8hpp}{Generator.\+hpp}}\end{DoxyCompactItemize}

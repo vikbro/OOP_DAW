@@ -1,7 +1,3 @@
-//
-// Created by vikso on 30/05/2025.
-//
-
 #include "FadeInOperation.hpp"
 
 //TODO not sure this works correctly

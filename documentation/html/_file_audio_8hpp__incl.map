@@ -1,0 +1,9 @@
+<map id="FileAudio.hpp" name="FileAudio.hpp">
+<area shape="rect" id="node1" title="Defines the FileAudio class for handling audio data from files and its creator." coords="74,5,175,32"/>
+<area shape="rect" id="node2" href="$_audio_8hpp.html" title="Defines the Audio and AudioCreator classes for audio processing." coords="127,80,207,107"/>
+<area shape="rect" id="node4" title=" " coords="5,155,71,181"/>
+<area shape="rect" id="node3" title=" " coords="95,155,151,181"/>
+<area shape="rect" id="node5" title=" " coords="175,155,247,181"/>
+<area shape="rect" id="node6" title=" " coords="272,155,327,181"/>
+<area shape="rect" id="node7" title=" " coords="351,155,421,181"/>
+</map>

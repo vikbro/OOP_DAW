@@ -1,0 +1,36 @@
+\hypertarget{_effect_8hpp}{}\doxysection{Effect.\+hpp File Reference}
+\label{_effect_8hpp}\index{Effect.hpp@{Effect.hpp}}
+
+
+Defines various audio effect operations and the \mbox{\hyperlink{class_effect}{Effect}} class template.  
+
+
+{\ttfamily \#include \char`\"{}Audio.\+hpp\char`\"{}}\newline
+Include dependency graph for Effect.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_effect_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_amplify}{Amplify}}
+\begin{DoxyCompactList}\small\item\em Functor to amplify an audio sample by a given factor. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_normalize}{Normalize}}
+\begin{DoxyCompactList}\small\item\em Functor to normalize an audio signal to a target amplitude. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_fade_in}{Fade\+In}}
+\begin{DoxyCompactList}\small\item\em Functor to apply a fade-\/in effect. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_fade_out}{Fade\+Out}}
+\begin{DoxyCompactList}\small\item\em Functor to apply a fade-\/out effect. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_effect}{Effect$<$ Effect\+Operation $>$}}
+\begin{DoxyCompactList}\small\item\em A template class that applies an effect operation to an \mbox{\hyperlink{class_audio}{Audio}} object. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_effect_creator}{Effect\+Creator}}
+\begin{DoxyCompactList}\small\item\em Creator class for \mbox{\hyperlink{class_effect}{Effect}} objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines various audio effect operations and the \mbox{\hyperlink{class_effect}{Effect}} class template. 
+

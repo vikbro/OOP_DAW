@@ -1,0 +1,88 @@
+\hypertarget{class_file_audio_creator}{}\doxysection{File\+Audio\+Creator Class Reference}
+\label{class_file_audio_creator}\index{FileAudioCreator@{FileAudioCreator}}
+
+
+Creator class for \mbox{\hyperlink{class_file_audio}{File\+Audio}} objects.  
+
+
+
+
+{\ttfamily \#include $<$File\+Audio.\+hpp$>$}
+
+
+
+Inheritance diagram for File\+Audio\+Creator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{class_file_audio_creator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for File\+Audio\+Creator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{class_file_audio_creator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_file_audio_creator_ab926eeb185327bec5aeee8b5dade3e25}{File\+Audio\+Creator}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{class_file_audio_creator}{File\+Audio\+Creator}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_audio}{Audio}} $\ast$ \mbox{\hyperlink{class_file_audio_creator_a0e5eb65a08b971058cf86cf272dd322d}{create\+Audio}} (std\+::istream \&in) const override
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{class_file_audio}{File\+Audio}} object from an input stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Creator class for \mbox{\hyperlink{class_file_audio}{File\+Audio}} objects. 
+
+Inherits from {\ttfamily \mbox{\hyperlink{class_audio_creator}{Audio\+Creator}}} to allow {\ttfamily \mbox{\hyperlink{class_file_audio}{File\+Audio}}} instantiation via the {\ttfamily \mbox{\hyperlink{class_audio_factory}{Audio\+Factory}}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_file_audio_creator_ab926eeb185327bec5aeee8b5dade3e25}\label{class_file_audio_creator_ab926eeb185327bec5aeee8b5dade3e25}} 
+\index{FileAudioCreator@{FileAudioCreator}!FileAudioCreator@{FileAudioCreator}}
+\index{FileAudioCreator@{FileAudioCreator}!FileAudioCreator@{FileAudioCreator}}
+\doxysubsubsection{\texorpdfstring{FileAudioCreator()}{FileAudioCreator()}}
+{\footnotesize\ttfamily File\+Audio\+Creator\+::\+File\+Audio\+Creator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{class_file_audio_creator}{File\+Audio\+Creator}}. 
+
+Typically registers itself with a factory or sets up the command it responds to. The default command is often related to file-\/based audio, e.\+g., \char`\"{}\+FILE\char`\"{}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_file_audio_creator_a0e5eb65a08b971058cf86cf272dd322d}\label{class_file_audio_creator_a0e5eb65a08b971058cf86cf272dd322d}} 
+\index{FileAudioCreator@{FileAudioCreator}!createAudio@{createAudio}}
+\index{createAudio@{createAudio}!FileAudioCreator@{FileAudioCreator}}
+\doxysubsubsection{\texorpdfstring{createAudio()}{createAudio()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_audio}{Audio}} $\ast$ File\+Audio\+Creator\+::create\+Audio (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a \mbox{\hyperlink{class_file_audio}{File\+Audio}} object from an input stream. 
+
+This method might read a filename or initial command from the stream to determine how to load the \mbox{\hyperlink{class_file_audio}{File\+Audio}} object. 
+\begin{DoxyParams}{Parameters}
+{\em in} & The input stream (e.\+g., representing console input or a script). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created \mbox{\hyperlink{class_file_audio}{File\+Audio}} object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_audio_creator_a8d21e771266f35c040ba07f1c6d9fbbb}{Audio\+Creator}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_file_audio_8hpp}{File\+Audio.\+hpp}}\item 
+File\+Audio.\+cpp\end{DoxyCompactItemize}

@@ -1,7 +1,3 @@
-//
-// Created by vikso on 21/05/2025.
-//
-
 #include "Audio.hpp"
 #include "AudioFactory.hpp"
 

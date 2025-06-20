@@ -1,7 +1,3 @@
-//
-// Created by vikso on 22/05/2025.
-//
-
 #include <limits>
 #include "AudioFactory.hpp"
 
@@ -26,7 +22,6 @@ Audio *AudioFactory::createAudio(std::istream &input) {
     if (creator) {
         return creator->createAudio(input);
     } else {
-//        TODO skip to the end of the line IDK WHAT THIS DOES
         input.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         throw std::runtime_error("Could not find appropriate Audio creator");
         return nullptr;

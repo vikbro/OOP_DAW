@@ -1,0 +1,188 @@
+\hypertarget{_effect_8hpp_source}{}\doxysection{Effect.\+hpp}
+\mbox{\hyperlink{_effect_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by vikso on 24/05/2025.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef DAW\_EFFECT\_HPP}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define DAW\_EFFECT\_HPP}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_audio_8hpp}{Audio.hpp}}"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{18 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_amplify}{Amplify}} \{}
+\DoxyCodeLine{19 \textcolor{keyword}{private}:}
+\DoxyCodeLine{20     \textcolor{keywordtype}{double} factor; }
+\DoxyCodeLine{21 \textcolor{keyword}{public}:}
+\DoxyCodeLine{26     \mbox{\hyperlink{struct_amplify_af0293a8bd396ef89befe311202cd348b}{Amplify}}(\textcolor{keywordtype}{double} factor) : factor(factor) \{\};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_amplify_aef98b71968f786e7d547330f10090cb8}{operator()}}(\textcolor{keywordtype}{double} s)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{34         \textcolor{keywordflow}{return} s * factor;}
+\DoxyCodeLine{35     \}}
+\DoxyCodeLine{36 \};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{41 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_normalize}{Normalize}} \{}
+\DoxyCodeLine{42     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_normalize_aa497de9ae97f163546ca769890088f4b}{gain}} = 1.0; }
+\DoxyCodeLine{43     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_normalize_a4a865ec5e52cda27b9e05e1fb693c916}{target}};     }
+\DoxyCodeLine{44 }
+\DoxyCodeLine{53     \mbox{\hyperlink{struct_normalize_a399c820a1d02f5c1e723f399af201df3}{Normalize}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_audio}{Audio}} \&a, \textcolor{keywordtype}{double} targetAmp = 1.0) : \mbox{\hyperlink{struct_normalize_a4a865ec5e52cda27b9e05e1fb693c916}{target}}(targetAmp) \{}
+\DoxyCodeLine{54         \textcolor{keywordtype}{double} maxAmp = 0.0;}
+\DoxyCodeLine{55         \textcolor{keywordflow}{for} (std::size\_t i = 0; i < a.\mbox{\hyperlink{class_audio_a641e7b05361d38f1a77089b68bf240af}{getSampleSize}}(); ++i) \{}
+\DoxyCodeLine{56             maxAmp = std::max(maxAmp, std::abs(a[i]));}
+\DoxyCodeLine{57         \}}
+\DoxyCodeLine{58         \mbox{\hyperlink{struct_normalize_aa497de9ae97f163546ca769890088f4b}{gain}} = (maxAmp > 0.000001) ? (\mbox{\hyperlink{struct_normalize_a4a865ec5e52cda27b9e05e1fb693c916}{target}} / maxAmp) : 1.0; \textcolor{comment}{// Avoid division by zero or very small numbers}}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{66     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_normalize_a757d6eeb388567fb0c157e17b19d26b2}{operator()}}(\textcolor{keywordtype}{double} s)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{67         \textcolor{keywordflow}{return} s * \mbox{\hyperlink{struct_normalize_aa497de9ae97f163546ca769890088f4b}{gain}};}
+\DoxyCodeLine{68     \}}
+\DoxyCodeLine{69 \};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{74 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_fade_in}{FadeIn}} \{}
+\DoxyCodeLine{75     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_fade_in_a6ac1734977d2167bfe4c23d7b31a3d20}{fadeDuration}};  }
+\DoxyCodeLine{76     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_fade_in_a6735e94fd4e64f4c0e9f8edba3b69891}{sampleRate}};    }
+\DoxyCodeLine{77 }
+\DoxyCodeLine{83     \mbox{\hyperlink{struct_fade_in_a5cc8ab3b9f0e577d43a277c3f5879d60}{FadeIn}}(\textcolor{keywordtype}{double} duration, \textcolor{keywordtype}{double} rate)}
+\DoxyCodeLine{84             : \mbox{\hyperlink{struct_fade_in_a6ac1734977d2167bfe4c23d7b31a3d20}{fadeDuration}}(duration), \mbox{\hyperlink{struct_fade_in_a6735e94fd4e64f4c0e9f8edba3b69891}{sampleRate}}(rate) \{\}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{95     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_fade_in_a348f2fe121f272ee1abcb2924b7bc000}{operator()}}(std::size\_t i, [[maybe\_unused]] std::size\_t totalSamples)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{96         \textcolor{comment}{// TODO: Verify the logic of this operation, especially if totalSamples should be used.}}
+\DoxyCodeLine{97         \textcolor{comment}{// Currently, totalSamples is unused. The fade is based on fadeDuration and sampleRate.}}
+\DoxyCodeLine{98         std::size\_t fadeSamples = \textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(\mbox{\hyperlink{struct_fade_in_a6ac1734977d2167bfe4c23d7b31a3d20}{fadeDuration}} * \mbox{\hyperlink{struct_fade_in_a6735e94fd4e64f4c0e9f8edba3b69891}{sampleRate}});}
+\DoxyCodeLine{99         \textcolor{keywordflow}{if} (fadeSamples == 0) \textcolor{keywordflow}{return} 1.0; \textcolor{comment}{// Avoid division by zero if fadeDuration is too small}}
+\DoxyCodeLine{100         \textcolor{keywordflow}{if} (i >= fadeSamples) \textcolor{keywordflow}{return} 1.0;}
+\DoxyCodeLine{101         \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(i) / fadeSamples;}
+\DoxyCodeLine{102     \}}
+\DoxyCodeLine{103 \};}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{108 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_fade_out}{FadeOut}} \{}
+\DoxyCodeLine{109     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_fade_out_a02b5557be4e60df45518c2bb0172505c}{fadeDuration}};  }
+\DoxyCodeLine{110     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_fade_out_a6c513ecfed594ace912d162d3622b7f5}{sampleRate}};    }
+\DoxyCodeLine{111 }
+\DoxyCodeLine{117     \mbox{\hyperlink{struct_fade_out_a9af0b1864c7c808e4b55df1e88878585}{FadeOut}}(\textcolor{keywordtype}{double} duration, \textcolor{keywordtype}{double} rate)}
+\DoxyCodeLine{118             : \mbox{\hyperlink{struct_fade_out_a02b5557be4e60df45518c2bb0172505c}{fadeDuration}}(duration), \mbox{\hyperlink{struct_fade_out_a6c513ecfed594ace912d162d3622b7f5}{sampleRate}}(rate) \{\}}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{126     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_fade_out_a9fcd43c1f5a0bbe0eaa3a682aa2b27b0}{operator()}}(std::size\_t i, std::size\_t totalSamples)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{127         std::size\_t fadeSamples = \textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(\mbox{\hyperlink{struct_fade_out_a02b5557be4e60df45518c2bb0172505c}{fadeDuration}} * \mbox{\hyperlink{struct_fade_out_a6c513ecfed594ace912d162d3622b7f5}{sampleRate}});}
+\DoxyCodeLine{128         \textcolor{keywordflow}{if} (fadeSamples == 0) \textcolor{keywordflow}{return} 1.0; \textcolor{comment}{// No fade if duration is zero}}
+\DoxyCodeLine{129         \textcolor{keywordflow}{if} (i >= totalSamples) \textcolor{keywordflow}{return} 0.0; \textcolor{comment}{// Should not happen if iterating up to totalSamples -\/ 1}}
+\DoxyCodeLine{130         \textcolor{comment}{// Start fading when (totalSamples -\/ i) <= fadeSamples}}
+\DoxyCodeLine{131         \textcolor{keywordflow}{if} (totalSamples -\/ i <= fadeSamples) \{}
+\DoxyCodeLine{132             \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(totalSamples -\/ i) / fadeSamples;}
+\DoxyCodeLine{133         \}}
+\DoxyCodeLine{134         \textcolor{keywordflow}{return} 1.0; \textcolor{comment}{// Before fade-\/out period, full volume}}
+\DoxyCodeLine{135     \}}
+\DoxyCodeLine{136 \};}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{150 \textcolor{keyword}{template}<\textcolor{keyword}{typename} EffectOperation>}
+\DoxyCodeLine{151 \textcolor{keyword}{class }\mbox{\hyperlink{class_effect}{Effect}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_audio}{Audio}} \{}
+\DoxyCodeLine{152 \textcolor{keyword}{private}:}
+\DoxyCodeLine{160     \textcolor{keyword}{const} \mbox{\hyperlink{class_audio}{Audio}} *base;}
+\DoxyCodeLine{161     \mbox{\hyperlink{class_effect_operation}{EffectOperation}} operation; }
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 \textcolor{keyword}{public}:}
+\DoxyCodeLine{169     \mbox{\hyperlink{class_effect_ac343896ad0679ebabd43a9ebe9013030}{Effect}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_audio}{Audio}} *input, \mbox{\hyperlink{class_effect_operation}{EffectOperation}} op);}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{175     \mbox{\hyperlink{class_effect_ac343896ad0679ebabd43a9ebe9013030}{Effect}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_effect}{Effect}} \&other);}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{185     \mbox{\hyperlink{class_effect}{Effect}} \&\mbox{\hyperlink{class_effect_aec17e91be2e324b9bc83ff766e201e72}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_effect}{Effect}} \&other);}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{190     \mbox{\hyperlink{class_effect_a5e65a40650d54b7e1f437e1843187929}{\string~Effect}}() \{}
+\DoxyCodeLine{191         \textcolor{keyword}{delete} base;}
+\DoxyCodeLine{192     \}}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{198     \mbox{\hyperlink{class_audio}{Audio}} *\mbox{\hyperlink{class_effect_a28b3802bdcc5c291686b4c2bc954d34b}{clone}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{208     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_effect_a7b86de1d8a9bf64d508dafc7ab3c081e}{operator[]}}(std::size\_t i) \textcolor{keyword}{const override};}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{216     \textcolor{keywordtype}{double} \&\mbox{\hyperlink{class_effect_a7b86de1d8a9bf64d508dafc7ab3c081e}{operator[]}}(std::size\_t i) \textcolor{keyword}{override};}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{223     std::ostream \&\mbox{\hyperlink{class_effect_a110c5d67c1488c58f5d6601a6f13590e}{printToStream}}(std::ostream \&out) \textcolor{keyword}{const override};}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225 \};}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{233 \textcolor{keyword}{template}<\textcolor{keyword}{typename} EffectOperation>}
+\DoxyCodeLine{234 std::ostream \&\mbox{\hyperlink{class_effect_a110c5d67c1488c58f5d6601a6f13590e}{Effect<EffectOperation>::printToStream}}(std::ostream \&out)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{235     out << this-\/>getDuration() << \textcolor{charliteral}{'\(\backslash\)t'} << this-\/>getSampleRate() << \textcolor{charliteral}{'\(\backslash\)t'} << this-\/>getSampleSize() << \textcolor{charliteral}{'\(\backslash\)t'};}
+\DoxyCodeLine{236     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < this-\/>getSampleSize(); ++i) \{}
+\DoxyCodeLine{237         out << (*this)[i] << \textcolor{charliteral}{' '}; \textcolor{comment}{// Use the effect's own operator[] const}}
+\DoxyCodeLine{238     \}}
+\DoxyCodeLine{239     out << std::endl;}
+\DoxyCodeLine{240     \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{241 \}}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{250 \textcolor{keyword}{template}<\textcolor{keyword}{typename} EffectOperation>}
+\DoxyCodeLine{251 \textcolor{keywordtype}{double} \&\mbox{\hyperlink{class_effect_a7b86de1d8a9bf64d508dafc7ab3c081e}{Effect<EffectOperation>::operator[]}}(std::size\_t \textcolor{comment}{/*i*/}) \{ \textcolor{comment}{// Marked i as unused}}
+\DoxyCodeLine{252     \textcolor{keywordflow}{throw} std::logic\_error(\textcolor{stringliteral}{"{}Effect does not support sample modification."{}});}
+\DoxyCodeLine{253 \}}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{264 \textcolor{keyword}{template}<\textcolor{keyword}{typename} EffectOperation>}
+\DoxyCodeLine{265 \textcolor{keywordtype}{double} \mbox{\hyperlink{class_effect_a7b86de1d8a9bf64d508dafc7ab3c081e}{Effect<EffectOperation>::operator[]}}(std::size\_t i)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{266     \textcolor{keywordflow}{return} operation((*base)[i]);}
+\DoxyCodeLine{267 \}}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{274 \textcolor{keyword}{template}<\textcolor{keyword}{typename} EffectOperation>}
+\DoxyCodeLine{275 \mbox{\hyperlink{class_audio}{Audio}} *\mbox{\hyperlink{class_effect_a28b3802bdcc5c291686b4c2bc954d34b}{Effect<EffectOperation>::clone}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{276     \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_effect}{Effect<EffectOperation>}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{277 \}}
+\DoxyCodeLine{278 }
+\DoxyCodeLine{288 \textcolor{keyword}{template}<\textcolor{keyword}{typename} EffectOperation>}
+\DoxyCodeLine{289 \mbox{\hyperlink{class_effect}{Effect<EffectOperation>}} \&\mbox{\hyperlink{class_effect_aec17e91be2e324b9bc83ff766e201e72}{Effect<EffectOperation>::operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_effect}{Effect}} \&other) \{}
+\DoxyCodeLine{290     \textcolor{keywordflow}{if} (\textcolor{keyword}{this} != \&other) \{}
+\DoxyCodeLine{291         \mbox{\hyperlink{class_audio}{Audio}} *temp = other.base-\/>\mbox{\hyperlink{class_audio_a25bd410b8534c38fa82be5292d8fb6c6}{clone}}(); \textcolor{comment}{// Potential throw here}}
+\DoxyCodeLine{292         \textcolor{keyword}{delete} base; \textcolor{comment}{// Safe to delete old base now}}
+\DoxyCodeLine{293         base = temp;}
+\DoxyCodeLine{294         operation = other.operation;}
+\DoxyCodeLine{295         \textcolor{comment}{// Update properties from the new base audio}}
+\DoxyCodeLine{296         setSampleRate(base-\/>getSampleRate());}
+\DoxyCodeLine{297         setDuration(base-\/>getDuration());}
+\DoxyCodeLine{298         setSampleSize(base-\/>getSampleSize());}
+\DoxyCodeLine{299     \}}
+\DoxyCodeLine{300     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{301 \}}
+\DoxyCodeLine{302 }
+\DoxyCodeLine{308 \textcolor{keyword}{template}<\textcolor{keyword}{typename} EffectOperation>}
+\DoxyCodeLine{309 \mbox{\hyperlink{class_effect_ac343896ad0679ebabd43a9ebe9013030}{Effect<EffectOperation>::Effect}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_effect}{Effect}} \&other) : base(other.base-\/>clone()), operation(other.operation) \{}
+\DoxyCodeLine{310     \mbox{\hyperlink{class_audio_a017f2ba56bab12303db8b0cfec5072c1}{setSampleRate}}(base-\/>\mbox{\hyperlink{class_audio_ad5702dd8afb84fb97963422088ac25c2}{getSampleRate}}());}
+\DoxyCodeLine{311     \mbox{\hyperlink{class_audio_a063cac30ea3a3c9d9af36999190cf80c}{setDuration}}(base-\/>\mbox{\hyperlink{class_audio_a7f6e247897f62571bec52d21430d303c}{getDuration}}());}
+\DoxyCodeLine{312     \mbox{\hyperlink{class_audio_a09ec986c1d63ce826d39aef09cf872ad}{setSampleSize}}(base-\/>\mbox{\hyperlink{class_audio_a641e7b05361d38f1a77089b68bf240af}{getSampleSize}}());}
+\DoxyCodeLine{313 \}}
+\DoxyCodeLine{314 }
+\DoxyCodeLine{321 \textcolor{keyword}{template}<\textcolor{keyword}{typename} EffectOperation>}
+\DoxyCodeLine{322 \mbox{\hyperlink{class_effect_ac343896ad0679ebabd43a9ebe9013030}{Effect<EffectOperation>::Effect}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_audio}{Audio}} *input, \mbox{\hyperlink{class_effect_operation}{EffectOperation}} op) :base(input-\/>clone()),}
+\DoxyCodeLine{323                                                                          operation(op) \{}
+\DoxyCodeLine{324     this-\/>\mbox{\hyperlink{class_audio_a063cac30ea3a3c9d9af36999190cf80c}{setDuration}}(base-\/>\mbox{\hyperlink{class_audio_a7f6e247897f62571bec52d21430d303c}{getDuration}}());}
+\DoxyCodeLine{325     this-\/>\mbox{\hyperlink{class_audio_a017f2ba56bab12303db8b0cfec5072c1}{setSampleRate}}(base-\/>\mbox{\hyperlink{class_audio_ad5702dd8afb84fb97963422088ac25c2}{getSampleRate}}());}
+\DoxyCodeLine{326     this-\/>\mbox{\hyperlink{class_audio_a09ec986c1d63ce826d39aef09cf872ad}{setSampleSize}}(base-\/>\mbox{\hyperlink{class_audio_a641e7b05361d38f1a77089b68bf240af}{getSampleSize}}());}
+\DoxyCodeLine{327 \}}
+\DoxyCodeLine{328 }
+\DoxyCodeLine{339 \textcolor{keyword}{template}<>}
+\DoxyCodeLine{340 \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_effect_a7b86de1d8a9bf64d508dafc7ab3c081e}{Effect<FadeIn>::operator[]}}(std::size\_t i)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{341     \textcolor{comment}{// The FadeIn operation needs current index and total samples.}}
+\DoxyCodeLine{342     \textcolor{comment}{// (*base)[i] gives the sample value.}}
+\DoxyCodeLine{343     \textcolor{comment}{// operation(i, base-\/>getSampleSize()) gives the fade multiplier.}}
+\DoxyCodeLine{344     \textcolor{comment}{// Note: The FadeIn struct uses the sampleRate passed to its constructor for fadeSamples calculation.}}
+\DoxyCodeLine{345     \textcolor{comment}{// The base-\/>getSampleSize() is used here as totalSamples for the multiplier logic.}}
+\DoxyCodeLine{346     \textcolor{keywordflow}{return} (*base)[i] * operation(i, base-\/>getSampleSize());}
+\DoxyCodeLine{347 \}}
+\DoxyCodeLine{348 }
+\DoxyCodeLine{359 \textcolor{keyword}{template}<>}
+\DoxyCodeLine{360 \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_effect_a7b86de1d8a9bf64d508dafc7ab3c081e}{Effect<FadeOut>::operator[]}}(std::size\_t i)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{361     \textcolor{comment}{// Similar to FadeIn, provides current index and total samples to the operation.}}
+\DoxyCodeLine{362     \textcolor{keywordflow}{return} (*base)[i] * operation(i, base-\/>getSampleSize());}
+\DoxyCodeLine{363 \}}
+\DoxyCodeLine{364 }
+\DoxyCodeLine{370 \textcolor{keyword}{class }\mbox{\hyperlink{class_effect_creator}{EffectCreator}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_audio_creator}{AudioCreator}} \{}
+\DoxyCodeLine{371 \textcolor{keyword}{public}:}
+\DoxyCodeLine{376     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_effect_creator_af79a862bd8134e24a7bbc48463a8210b}{EffectCreator}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* command = \textcolor{stringliteral}{"{}EFCT"{}});}
+\DoxyCodeLine{377 }
+\DoxyCodeLine{388     \mbox{\hyperlink{class_audio}{Audio}}* \mbox{\hyperlink{class_effect_creator_af45c2d4c45424a6082f4e3b4571379ab}{createAudio}}(std::istream\& in) \textcolor{keyword}{const override};}
+\DoxyCodeLine{389 \};}
+\DoxyCodeLine{390 }
+\DoxyCodeLine{391 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DAW\_EFFECT\_HPP}}
+\DoxyCodeLine{392 }
+\DoxyCodeLine{393 }
+\DoxyCodeLine{394 }
+\DoxyCodeLine{395 }
+
+\end{DoxyCode}

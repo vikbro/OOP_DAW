@@ -1,0 +1,5 @@
+<map id="EffectOperation" name="EffectOperation">
+<area shape="rect" id="node1" title=" " coords="65,5,175,32"/>
+<area shape="rect" id="node2" href="$class_amplify_effect.html" title=" " coords="5,80,104,107"/>
+<area shape="rect" id="node3" href="$class_fade_in_operation.html" title=" " coords="128,80,245,107"/>
+</map>

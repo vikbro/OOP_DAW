@@ -1,0 +1,12 @@
+<map id="Effect.cpp" name="Effect.cpp">
+<area shape="rect" id="node1" title=" " coords="236,5,316,32"/>
+<area shape="rect" id="node2" href="$_effect_8hpp.html" title="Defines various audio effect operations and the Effect class template." coords="109,80,189,107"/>
+<area shape="rect" id="node9" href="$_audio_factory_8hpp.html" title="Defines the AudioFactory class for creating Audio objects." coords="214,80,338,107"/>
+<area shape="rect" id="node10" title=" " coords="363,80,416,107"/>
+<area shape="rect" id="node3" href="$_audio_8hpp.html" title="Defines the Audio and AudioCreator classes for audio processing." coords="172,155,252,181"/>
+<area shape="rect" id="node4" title=" " coords="5,229,61,256"/>
+<area shape="rect" id="node5" title=" " coords="86,229,151,256"/>
+<area shape="rect" id="node6" title=" " coords="176,229,248,256"/>
+<area shape="rect" id="node7" title=" " coords="273,229,327,256"/>
+<area shape="rect" id="node8" title=" " coords="352,229,421,256"/>
+</map>

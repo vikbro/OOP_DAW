@@ -1,0 +1,88 @@
+\hypertarget{class_silence_creator}{}\doxysection{Silence\+Creator Class Reference}
+\label{class_silence_creator}\index{SilenceCreator@{SilenceCreator}}
+
+
+Creator class for \mbox{\hyperlink{class_silence}{Silence}} objects.  
+
+
+
+
+{\ttfamily \#include $<$Silence.\+hpp$>$}
+
+
+
+Inheritance diagram for Silence\+Creator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{class_silence_creator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Silence\+Creator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{class_silence_creator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_silence_creator_a9dc39419f5fc2a2bf9128b8741f17ea3}{Silence\+Creator}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{class_silence_creator}{Silence\+Creator}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_audio}{Audio}} $\ast$ \mbox{\hyperlink{class_silence_creator_a89a1c5d965b1254e58725d378e25b945}{create\+Audio}} (std\+::istream \&in) const override
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{class_silence}{Silence}} object from an input stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Creator class for \mbox{\hyperlink{class_silence}{Silence}} objects. 
+
+Inherits from {\ttfamily \mbox{\hyperlink{class_audio_creator}{Audio\+Creator}}} to allow {\ttfamily \mbox{\hyperlink{class_silence}{Silence}}} instantiation via the {\ttfamily \mbox{\hyperlink{class_audio_factory}{Audio\+Factory}}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_silence_creator_a9dc39419f5fc2a2bf9128b8741f17ea3}\label{class_silence_creator_a9dc39419f5fc2a2bf9128b8741f17ea3}} 
+\index{SilenceCreator@{SilenceCreator}!SilenceCreator@{SilenceCreator}}
+\index{SilenceCreator@{SilenceCreator}!SilenceCreator@{SilenceCreator}}
+\doxysubsubsection{\texorpdfstring{SilenceCreator()}{SilenceCreator()}}
+{\footnotesize\ttfamily Silence\+Creator\+::\+Silence\+Creator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{class_silence_creator}{Silence\+Creator}}. 
+
+Typically registers itself with a factory or sets up the command it responds to (e.\+g., \char`\"{}\+SILENCE\char`\"{}). 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_silence_creator_a89a1c5d965b1254e58725d378e25b945}\label{class_silence_creator_a89a1c5d965b1254e58725d378e25b945}} 
+\index{SilenceCreator@{SilenceCreator}!createAudio@{createAudio}}
+\index{createAudio@{createAudio}!SilenceCreator@{SilenceCreator}}
+\doxysubsubsection{\texorpdfstring{createAudio()}{createAudio()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_audio}{Audio}} $\ast$ Silence\+Creator\+::create\+Audio (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a \mbox{\hyperlink{class_silence}{Silence}} object from an input stream. 
+
+This method would read parameters like duration and sample rate from the stream. 
+\begin{DoxyParams}{Parameters}
+{\em in} & The input stream (e.\+g., representing console input or a script). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created \mbox{\hyperlink{class_silence}{Silence}} object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_audio_creator_a8d21e771266f35c040ba07f1c6d9fbbb}{Audio\+Creator}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_silence_8hpp}{Silence.\+hpp}}\item 
+Silence.\+cpp\end{DoxyCompactItemize}

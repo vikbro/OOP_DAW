@@ -1,7 +1,3 @@
-//
-// Created by vikso on 30/05/2025.
-//
-
 #include "AmplifyEffect.hpp"
 
 EffectOperation *AmplifyEffect::clone() const {

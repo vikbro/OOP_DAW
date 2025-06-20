@@ -1,0 +1,31 @@
+\hypertarget{_fade_in_operation_8hpp_source}{}\doxysection{Fade\+In\+Operation.\+hpp}
+\label{_fade_in_operation_8hpp_source}\index{Effects/FadeInOperation.hpp@{Effects/FadeInOperation.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by vikso on 30/05/2025.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef DAW\_FADEINOPERATION\_HPP}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define DAW\_FADEINOPERATION\_HPP}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}EffectOpeation.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}../Utils.hpp"{}} \textcolor{comment}{// std iostream}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_fade_in_operation}{FadeInOperation}} : \mbox{\hyperlink{class_effect_operation}{EffectOperation}} \{}
+\DoxyCodeLine{11 \textcolor{keyword}{private}:}
+\DoxyCodeLine{12     \textcolor{keywordtype}{double} fadeDuration;}
+\DoxyCodeLine{13     \textcolor{keywordtype}{float} sampleRate;}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_fade_in_operation}{FadeInOperation}}(\textcolor{keywordtype}{double} fadeDuration, \textcolor{keywordtype}{float} sampleRate)}
+\DoxyCodeLine{17             : fadeDuration(fadeDuration), sampleRate(sampleRate) \{\}}
+\DoxyCodeLine{18 \textcolor{comment}{//Functor class}}
+\DoxyCodeLine{19     \textcolor{keywordtype}{double} operator()(\textcolor{keywordtype}{double} sample, std::size\_t index) \textcolor{keyword}{const};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \mbox{\hyperlink{class_effect_operation}{EffectOperation}}* clone() \textcolor{keyword}{const override} ;}
+\DoxyCodeLine{22 \};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DAW\_FADEINOPERATION\_HPP}}
+
+\end{DoxyCode}

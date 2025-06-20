@@ -1,11 +1,3 @@
-//#include <fstream>      // For std::ofstream, std::ifstream
-//#include <string>       // For std::string
-//#include <stdexcept>    // For std::runtime_error, std::exception
-//#include <vector>       // For std::vector (used by audio classes)
-//#include <sstream>      // For std::stringstream
-//#include <iostream>     // For std::cout, std::cerr
-//#include <cmath>        // For sin() in SineGenerator (already in Generator.hpp but good for clarity if used here)
-
 #include "Silence.hpp"
 #include "FileAudio.hpp"
 #include "Effect.hpp"
@@ -139,10 +131,6 @@ int main() {
 
     } catch (const std::exception &ex) {
         std::cerr << "\nUnhandled exception in main: " << ex.what() << std::endl;
-        // Ensure file is deleted if allocated and an exception occurs after its allocation
-        // delete file; // This is problematic here because 'file' might not be valid or already deleted.
-        // Better to rely on RAII or smart pointers if exceptions are complex.
-        // For this structure, the delete is attempted before end of try or in specific catches.
         return 1;
     } catch (...) {
         std::cerr << "\nUnknown unhandled exception in main." << std::endl;

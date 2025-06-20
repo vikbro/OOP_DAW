@@ -1,0 +1,11 @@
+<map id="Generators/Generator.hpp" name="Generators/Generator.hpp">
+<area shape="rect" id="node1" title="Defines various audio generator operations and the GeneratorAudio template class." coords="226,5,398,32"/>
+<area shape="rect" id="node2" href="$_audio_8hpp.html" title="Defines the Audio and AudioCreator classes for audio processing." coords="166,80,258,107"/>
+<area shape="rect" id="node8" title=" " coords="283,80,341,107"/>
+<area shape="rect" id="node9" title=" " coords="366,80,445,107"/>
+<area shape="rect" id="node3" title=" " coords="5,155,61,181"/>
+<area shape="rect" id="node4" title=" " coords="86,155,151,181"/>
+<area shape="rect" id="node5" title=" " coords="176,155,248,181"/>
+<area shape="rect" id="node6" title=" " coords="273,155,327,181"/>
+<area shape="rect" id="node7" title=" " coords="352,155,421,181"/>
+</map>

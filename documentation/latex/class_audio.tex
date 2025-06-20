@@ -1,0 +1,325 @@
+\hypertarget{class_audio}{}\doxysection{Audio Class Reference}
+\label{class_audio}\index{Audio@{Audio}}
+
+
+Abstract base class for \mbox{\hyperlink{class_audio}{Audio}} objects.  
+
+
+
+
+{\ttfamily \#include $<$Audio.\+hpp$>$}
+
+
+
+Inheritance diagram for Audio\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_audio__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_audio_aa9d3935a2b91ab4b825bc0cb05f245ea}\label{class_audio_aa9d3935a2b91ab4b825bc0cb05f245ea}} 
+{\bfseries Audio} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{class_audio}{Audio}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_audio_a00c090445b8ff4523a22a5982b8360f4}\label{class_audio_a00c090445b8ff4523a22a5982b8360f4}} 
+virtual {\bfseries $\sim$\+Audio} () noexcept=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for \mbox{\hyperlink{class_audio}{Audio}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_audio_a063cac30ea3a3c9d9af36999190cf80c}{set\+Duration}} (double \mbox{\hyperlink{class_audio_a5f38535c4fd5dde1892a1d6795361183}{duration}})
+\begin{DoxyCompactList}\small\item\em Sets the duration of the audio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_audio_a017f2ba56bab12303db8b0cfec5072c1}{set\+Sample\+Rate}} (float rate)
+\begin{DoxyCompactList}\small\item\em Sets the sample rate of the audio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_audio_a09ec986c1d63ce826d39aef09cf872ad}{set\+Sample\+Size}} (size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Sets the sample size (number of samples) of the audio. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_audio_ad5702dd8afb84fb97963422088ac25c2}{get\+Sample\+Rate}} () const
+\begin{DoxyCompactList}\small\item\em Gets the sample rate of the audio. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_audio_a7f6e247897f62571bec52d21430d303c}{get\+Duration}} () const
+\begin{DoxyCompactList}\small\item\em Gets the duration of the audio. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_audio_a641e7b05361d38f1a77089b68bf240af}{get\+Sample\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Gets the sample size (number of samples) of the audio. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_audio_af85335ff0799239ef8db01462684e07c}{print}} () const
+\begin{DoxyCompactList}\small\item\em Prints information about the audio to the console. \end{DoxyCompactList}\item 
+virtual std\+::ostream \& \mbox{\hyperlink{class_audio_a9e9377836628310e61c97070797f5a8f}{print\+To\+Stream}} (std\+::ostream \&out) const =0
+\begin{DoxyCompactList}\small\item\em Prints information about the audio to an output stream. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{class_audio_a1cc612a87753e71cf8b061fd9ef5c6a4}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t index) const =0
+\begin{DoxyCompactList}\small\item\em Gets the audio sample at the given index (const version). \end{DoxyCompactList}\item 
+virtual double \& \mbox{\hyperlink{class_audio_a23ea2682f83f5a91efe1497cdd2a4fe3}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t index)=0
+\begin{DoxyCompactList}\small\item\em Gets a reference to the audio sample at the given index. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_audio}{Audio}} $\ast$ \mbox{\hyperlink{class_audio_a25bd410b8534c38fa82be5292d8fb6c6}{clone}} () const =0
+\begin{DoxyCompactList}\small\item\em Creates a clone of the \mbox{\hyperlink{class_audio}{Audio}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_audio_afa14bd94cf17dbcb64130d718982554d}{is\+Valid\+Sample\+Rate}} (float rate)
+\begin{DoxyCompactList}\small\item\em Checks if a given sample rate is valid. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_audio_a063a2f1dcd3af7f1a67710006e43d522}{is\+Valid\+Sample\+Size}} (size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Checks if a given sample size is valid. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_audio_a5dd6d6638c7487b4ec1d8601bdd2e7e2}{is\+Valid\+Duration}} (double \mbox{\hyperlink{class_audio_a5f38535c4fd5dde1892a1d6795361183}{duration}})
+\begin{DoxyCompactList}\small\item\em Checks if a given duration is valid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_audio_a78374f1a2d27089913544f95db64839b}\label{class_audio_a78374f1a2d27089913544f95db64839b}} 
+float {\bfseries sample\+Rate}
+\begin{DoxyCompactList}\small\item\em The sample rate of the audio in Hz. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_audio_a5f38535c4fd5dde1892a1d6795361183}\label{class_audio_a5f38535c4fd5dde1892a1d6795361183}} 
+double {\bfseries duration}
+\begin{DoxyCompactList}\small\item\em The duration of the audio in seconds. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_audio_af7e33ecd20f1f9da9b1374a41ac2cb3e}\label{class_audio_af7e33ecd20f1f9da9b1374a41ac2cb3e}} 
+size\+\_\+t {\bfseries sample\+Size}
+\begin{DoxyCompactList}\small\item\em The number of samples in the audio. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_audio_a53a398533a31d9048b56b05f14c93fcf}\label{class_audio_a53a398533a31d9048b56b05f14c93fcf}} 
+std\+::string {\bfseries audio\+Name}
+\begin{DoxyCompactList}\small\item\em The name of the audio. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class for \mbox{\hyperlink{class_audio}{Audio}} objects. 
+
+This class provides a common interface for different types of audio data. It defines pure virtual functions for accessing and manipulating audio samples. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_audio_a25bd410b8534c38fa82be5292d8fb6c6}\label{class_audio_a25bd410b8534c38fa82be5292d8fb6c6}} 
+\index{Audio@{Audio}!clone@{clone}}
+\index{clone@{clone}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_audio}{Audio}} $\ast$ Audio\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Creates a clone of the \mbox{\hyperlink{class_audio}{Audio}} object. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the cloned \mbox{\hyperlink{class_audio}{Audio}} object. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_effect_a28b3802bdcc5c291686b4c2bc954d34b}{Effect$<$ Effect\+Operation $>$}}, \mbox{\hyperlink{class_file_audio_a7602ae17852d4ebd3b8a4bcb4a4c7d60}{File\+Audio}}, \mbox{\hyperlink{class_generator_audio_a07180ec2343172440708a803bffaad94}{Generator\+Audio$<$ Generator $>$}}, and \mbox{\hyperlink{class_silence_acdc4afd399ade1f5b5cbdf37c75b2c90}{Silence}}.
+
+\mbox{\Hypertarget{class_audio_a7f6e247897f62571bec52d21430d303c}\label{class_audio_a7f6e247897f62571bec52d21430d303c}} 
+\index{Audio@{Audio}!getDuration@{getDuration}}
+\index{getDuration@{getDuration}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{getDuration()}{getDuration()}}
+{\footnotesize\ttfamily double Audio\+::get\+Duration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the duration of the audio. 
+
+\begin{DoxyReturn}{Returns}
+The duration in seconds. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_audio_ad5702dd8afb84fb97963422088ac25c2}\label{class_audio_ad5702dd8afb84fb97963422088ac25c2}} 
+\index{Audio@{Audio}!getSampleRate@{getSampleRate}}
+\index{getSampleRate@{getSampleRate}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{getSampleRate()}{getSampleRate()}}
+{\footnotesize\ttfamily float Audio\+::get\+Sample\+Rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the sample rate of the audio. 
+
+\begin{DoxyReturn}{Returns}
+The sample rate in Hz. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_audio_a641e7b05361d38f1a77089b68bf240af}\label{class_audio_a641e7b05361d38f1a77089b68bf240af}} 
+\index{Audio@{Audio}!getSampleSize@{getSampleSize}}
+\index{getSampleSize@{getSampleSize}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{getSampleSize()}{getSampleSize()}}
+{\footnotesize\ttfamily size\+\_\+t Audio\+::get\+Sample\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the sample size (number of samples) of the audio. 
+
+\begin{DoxyReturn}{Returns}
+The sample size. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_audio_a5dd6d6638c7487b4ec1d8601bdd2e7e2}\label{class_audio_a5dd6d6638c7487b4ec1d8601bdd2e7e2}} 
+\index{Audio@{Audio}!isValidDuration@{isValidDuration}}
+\index{isValidDuration@{isValidDuration}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{isValidDuration()}{isValidDuration()}}
+{\footnotesize\ttfamily bool Audio\+::is\+Valid\+Duration (\begin{DoxyParamCaption}\item[{double}]{duration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Checks if a given duration is valid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em duration} & The duration to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the duration is valid, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_audio_afa14bd94cf17dbcb64130d718982554d}\label{class_audio_afa14bd94cf17dbcb64130d718982554d}} 
+\index{Audio@{Audio}!isValidSampleRate@{isValidSampleRate}}
+\index{isValidSampleRate@{isValidSampleRate}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{isValidSampleRate()}{isValidSampleRate()}}
+{\footnotesize\ttfamily bool Audio\+::is\+Valid\+Sample\+Rate (\begin{DoxyParamCaption}\item[{float}]{rate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Checks if a given sample rate is valid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rate} & The sample rate to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the sample rate is valid, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_audio_a063a2f1dcd3af7f1a67710006e43d522}\label{class_audio_a063a2f1dcd3af7f1a67710006e43d522}} 
+\index{Audio@{Audio}!isValidSampleSize@{isValidSampleSize}}
+\index{isValidSampleSize@{isValidSampleSize}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{isValidSampleSize()}{isValidSampleSize()}}
+{\footnotesize\ttfamily bool Audio\+::is\+Valid\+Sample\+Size (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Checks if a given sample size is valid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The sample size to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the sample size is valid, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_audio_a1cc612a87753e71cf8b061fd9ef5c6a4}\label{class_audio_a1cc612a87753e71cf8b061fd9ef5c6a4}} 
+\index{Audio@{Audio}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual double Audio\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Gets the audio sample at the given index (const version). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the sample. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The audio sample at the given index. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_effect_a5ce9043baa46f6f2f53c4d791da95145}{Effect$<$ Effect\+Operation $>$}}, \mbox{\hyperlink{class_effect_ae88353aa6ade268fda78723cee624ca1}{Effect$<$ Effect\+Operation $>$}}, \mbox{\hyperlink{class_effect_a7b86de1d8a9bf64d508dafc7ab3c081e}{Effect$<$ Effect\+Operation $>$}}, and \mbox{\hyperlink{class_generator_audio_a1bc673fd828ff4725e607c691a6854a3}{Generator\+Audio$<$ Generator $>$}}.
+
+\mbox{\Hypertarget{class_audio_a23ea2682f83f5a91efe1497cdd2a4fe3}\label{class_audio_a23ea2682f83f5a91efe1497cdd2a4fe3}} 
+\index{Audio@{Audio}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual double \& Audio\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Gets a reference to the audio sample at the given index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the sample. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the audio sample at the given index. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_effect_a3ff953b943f4d0688433f79f81e751b5}{Effect$<$ Effect\+Operation $>$}}, and \mbox{\hyperlink{class_generator_audio_afa88aed9ef4ee448658bd2556ad9ddc6}{Generator\+Audio$<$ Generator $>$}}.
+
+\mbox{\Hypertarget{class_audio_af85335ff0799239ef8db01462684e07c}\label{class_audio_af85335ff0799239ef8db01462684e07c}} 
+\index{Audio@{Audio}!print@{print}}
+\index{print@{print}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Audio\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Prints information about the audio to the console. 
+
+
+
+Reimplemented in \mbox{\hyperlink{class_file_audio_a5ca719f3e1f359bd60ec128ac6331a34}{File\+Audio}}, and \mbox{\hyperlink{class_silence_a9d01d952f3ea934758c43eb421698647}{Silence}}.
+
+\mbox{\Hypertarget{class_audio_a9e9377836628310e61c97070797f5a8f}\label{class_audio_a9e9377836628310e61c97070797f5a8f}} 
+\index{Audio@{Audio}!printToStream@{printToStream}}
+\index{printToStream@{printToStream}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{printToStream()}{printToStream()}}
+{\footnotesize\ttfamily virtual std\+::ostream \& Audio\+::print\+To\+Stream (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Prints information about the audio to an output stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & The output stream. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the output stream. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_effect_a110c5d67c1488c58f5d6601a6f13590e}{Effect$<$ Effect\+Operation $>$}}, \mbox{\hyperlink{class_file_audio_a0a417a2ba0a816a11acc5999c8e8cee3}{File\+Audio}}, \mbox{\hyperlink{class_generator_audio_aeabb8c0e9666d954687f6bd1feaf4a88}{Generator\+Audio$<$ Generator $>$}}, and \mbox{\hyperlink{class_silence_a16544e086e3a8d92bf559b17773a8035}{Silence}}.
+
+\mbox{\Hypertarget{class_audio_a063cac30ea3a3c9d9af36999190cf80c}\label{class_audio_a063cac30ea3a3c9d9af36999190cf80c}} 
+\index{Audio@{Audio}!setDuration@{setDuration}}
+\index{setDuration@{setDuration}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{setDuration()}{setDuration()}}
+{\footnotesize\ttfamily void Audio\+::set\+Duration (\begin{DoxyParamCaption}\item[{double}]{duration }\end{DoxyParamCaption})}
+
+
+
+Sets the duration of the audio. 
+
+Ensures valid setting of the duration of the \mbox{\hyperlink{class_audio}{Audio}}. If the new duration is longer than the current duration, the audio will be filled with silence. 
+\begin{DoxyParams}{Parameters}
+{\em duration} & The new duration in seconds. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_audio_a017f2ba56bab12303db8b0cfec5072c1}\label{class_audio_a017f2ba56bab12303db8b0cfec5072c1}} 
+\index{Audio@{Audio}!setSampleRate@{setSampleRate}}
+\index{setSampleRate@{setSampleRate}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{setSampleRate()}{setSampleRate()}}
+{\footnotesize\ttfamily void Audio\+::set\+Sample\+Rate (\begin{DoxyParamCaption}\item[{float}]{rate }\end{DoxyParamCaption})}
+
+
+
+Sets the sample rate of the audio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rate} & The new sample rate in Hz. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_audio_a09ec986c1d63ce826d39aef09cf872ad}\label{class_audio_a09ec986c1d63ce826d39aef09cf872ad}} 
+\index{Audio@{Audio}!setSampleSize@{setSampleSize}}
+\index{setSampleSize@{setSampleSize}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{setSampleSize()}{setSampleSize()}}
+{\footnotesize\ttfamily void Audio\+::set\+Sample\+Size (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Sets the sample size (number of samples) of the audio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The new sample size. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_audio_8hpp}{Audio.\+hpp}}\item 
+Audio.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,4 @@
+<map id="FileAudioCreator" name="FileAudioCreator">
+<area shape="rect" id="node1" title="Creator class for FileAudio objects." coords="5,80,124,107"/>
+<area shape="rect" id="node2" href="$class_audio_creator.html" title="Abstract base class for creating Audio objects." coords="16,5,113,32"/>
+</map>

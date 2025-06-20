@@ -1,0 +1,38 @@
+\hypertarget{_silence_8hpp_source}{}\doxysection{Silence.\+hpp}
+\mbox{\hyperlink{_silence_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by vikso on 22/05/2025.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef DAW\_SILENCE\_HPP}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define DAW\_SILENCE\_HPP}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_audio_8hpp}{Audio.hpp}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdexcept>} \textcolor{comment}{// For std::logic\_error}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{class_silence}{Silence}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_audio}{Audio}} \{}
+\DoxyCodeLine{23 \textcolor{keyword}{public}:}
+\DoxyCodeLine{29     \mbox{\hyperlink{class_silence_a5eb03b4d423ba9850e157788dde43260}{Silence}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_audio_a5f38535c4fd5dde1892a1d6795361183}{duration}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{class_audio_a78374f1a2d27089913544f95db64839b}{sampleRate}});}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{39     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_silence_a88309f7169b9ac651768cab4e4a5d409}{operator[]}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const override};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{47     \textcolor{keywordtype}{double} \&\mbox{\hyperlink{class_silence_a88309f7169b9ac651768cab4e4a5d409}{operator[]}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{override};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{53     \mbox{\hyperlink{class_silence}{Silence}} *\mbox{\hyperlink{class_silence_acdc4afd399ade1f5b5cbdf37c75b2c90}{clone}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{63     std::ostream \&\mbox{\hyperlink{class_silence_a16544e086e3a8d92bf559b17773a8035}{printToStream}}(std::ostream \&out) \textcolor{keyword}{const override};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{68     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_silence_a9d01d952f3ea934758c43eb421698647}{print}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{69 \};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{76 \textcolor{keyword}{class }\mbox{\hyperlink{class_silence_creator}{SilenceCreator}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_audio_creator}{AudioCreator}} \{ \textcolor{comment}{// Explicitly public inheritance}}
+\DoxyCodeLine{77 \textcolor{keyword}{public}:}
+\DoxyCodeLine{83     \mbox{\hyperlink{class_silence_creator_a9dc39419f5fc2a2bf9128b8741f17ea3}{SilenceCreator}}();}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{92     \mbox{\hyperlink{class_audio}{Audio}} *\mbox{\hyperlink{class_silence_creator_a89a1c5d965b1254e58725d378e25b945}{createAudio}}(std::istream \&in) \textcolor{keyword}{const override};}
+\DoxyCodeLine{93 \};}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DAW\_SILENCE\_HPP}}
+
+\end{DoxyCode}

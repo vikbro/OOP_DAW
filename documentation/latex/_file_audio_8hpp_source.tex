@@ -1,0 +1,59 @@
+\hypertarget{_file_audio_8hpp_source}{}\doxysection{File\+Audio.\+hpp}
+\mbox{\hyperlink{_file_audio_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by vikso on 22/05/2025.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef DAW\_FILEAUDIO\_HPP}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define DAW\_FILEAUDIO\_HPP}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_audio_8hpp}{Audio.hpp}}"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <vector>} \textcolor{comment}{// Included for std::vector}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <string>} \textcolor{comment}{// Included for potential std::string usage and char* context}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <fstream>} \textcolor{comment}{// For std::ostream, std::istream context}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{class_file_audio}{FileAudio}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_audio}{Audio}} \{}
+\DoxyCodeLine{24 \textcolor{keyword}{private}:}
+\DoxyCodeLine{25     std::vector<sample> samples; }
+\DoxyCodeLine{26     \textcolor{keywordtype}{size\_t} currentSize;          }
+\DoxyCodeLine{27     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* fileName;        }
+\DoxyCodeLine{28 }
+\DoxyCodeLine{35     \textcolor{keyword}{static} \textcolor{keywordtype}{void} writeAsBytes(std::ostream\& file, \textcolor{keywordtype}{int} value, \textcolor{keywordtype}{int} byteSize);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{keyword}{public}:}
+\DoxyCodeLine{41     \mbox{\hyperlink{class_file_audio_aaa2ce4b30597670e249ba3f2cbf015dc}{FileAudio}}();}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{49     \mbox{\hyperlink{class_file_audio_aaa2ce4b30597670e249ba3f2cbf015dc}{FileAudio}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* fileName);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{58     \mbox{\hyperlink{class_file_audio_aaa2ce4b30597670e249ba3f2cbf015dc}{FileAudio}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_audio}{Audio}}\& existingAudio);}
+\DoxyCodeLine{59 \textcolor{comment}{//    FileAudio(const std::string\& fileName); // Commented out constructor, potentially for future use or replaced by char* version.}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{67     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_file_audio_a7d15a5ec2d8410a3cb4ef6cfc3164ae2}{operator[]}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const override};}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{75     \textcolor{keywordtype}{double} \&\mbox{\hyperlink{class_file_audio_a7d15a5ec2d8410a3cb4ef6cfc3164ae2}{operator[]}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{override};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{81     \mbox{\hyperlink{class_file_audio}{FileAudio}}* \mbox{\hyperlink{class_file_audio_a7602ae17852d4ebd3b8a4bcb4a4c7d60}{clone}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{90     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_file_audio_a5ccc56b381e4ef4bf6dd687028f43a99}{readTXT}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* fileName);}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{98     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_file_audio_aeda790a1d67ad88d36b92d53cd00e255}{readWAV}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* fileName);}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{106     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_file_audio_afc1e40b10393fe5b5c3c9ffb0a8efa86}{writeTXT}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* fileName) \textcolor{keyword}{const};}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{115     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_file_audio_a8b4fb932b06347cf398fc428eaa14dd1}{writeWAV}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* fileName) \textcolor{keyword}{const};}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{124     std::ostream \&\mbox{\hyperlink{class_file_audio_a0a417a2ba0a816a11acc5999c8e8cee3}{printToStream}}(std::ostream \&out) \textcolor{keyword}{const override};}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{131     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_file_audio_a5ca719f3e1f359bd60ec128ac6331a34}{print}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{132 \};}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{139 \textcolor{keyword}{class }\mbox{\hyperlink{class_file_audio_creator}{FileAudioCreator}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_audio_creator}{AudioCreator}} \{ \textcolor{comment}{// Explicitly public inheritance}}
+\DoxyCodeLine{140 \textcolor{keyword}{public}:}
+\DoxyCodeLine{147     \mbox{\hyperlink{class_file_audio_creator_ab926eeb185327bec5aeee8b5dade3e25}{FileAudioCreator}}();}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{157     \mbox{\hyperlink{class_audio}{Audio}} *\mbox{\hyperlink{class_file_audio_creator_a0e5eb65a08b971058cf86cf272dd322d}{createAudio}}(std::istream \&in) \textcolor{keyword}{const override};}
+\DoxyCodeLine{158 \};}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DAW\_FILEAUDIO\_HPP}}
+
+\end{DoxyCode}

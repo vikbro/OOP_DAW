@@ -1,7 +1,3 @@
-//
-// Created by vikso on 30/05/2025.
-//
-
 #ifndef DAW_UTILS_HPP
 #define DAW_UTILS_HPP
 

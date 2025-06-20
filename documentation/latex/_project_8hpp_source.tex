@@ -1,0 +1,31 @@
+\hypertarget{_project_8hpp_source}{}\doxysection{Project.\+hpp}
+\mbox{\hyperlink{_project_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by vikso on 19/06/2025.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef DAW\_PROJECT\_HPP}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define DAW\_PROJECT\_HPP}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_track_8hpp}{Track.hpp}}"{}} \textcolor{comment}{// Assumes Track.hpp defines the Track class}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <vector>}   \textcolor{comment}{// For std::vector}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <string>}   \textcolor{comment}{// For std::string context (though char* is used)}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{class_project}{Project}} \{}
+\DoxyCodeLine{24 \textcolor{keyword}{private}:}
+\DoxyCodeLine{25     std::vector<Track> tracks; }
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{35     \mbox{\hyperlink{class_project_adb5924f4e030db342a6aa6e340763fc9}{Project}}(\textcolor{keywordtype}{double} frequency, \textcolor{keywordtype}{int} trackAmount);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{46     \textcolor{keyword}{static} \mbox{\hyperlink{class_project}{Project}} \mbox{\hyperlink{class_project_a32f34140d3781ef8b3fd01c4c62060ac}{createNew}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* name);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_project_ad4082ca4c1174695c916e719ee1f24fe}{save}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* projectName);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_project_a635d87eded64a2a55a5b7be52157ea60}{load}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}\& projectName); \textcolor{comment}{// TODO: Review parameter type, likely should be const char*}}
+\DoxyCodeLine{63 \};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DAW\_PROJECT\_HPP}}
+
+\end{DoxyCode}

@@ -1,0 +1,87 @@
+\hypertarget{_generator_8hpp_source}{}\doxysection{Generator.\+hpp}
+\label{_generator_8hpp_source}\index{Generators/Generator.hpp@{Generators/Generator.hpp}}
+\mbox{\hyperlink{_generator_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by vikso on 06/06/2025.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef DAW\_GENERATOR\_HPP}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define DAW\_GENERATOR\_HPP}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}../Audio.hpp"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <cmath>} \textcolor{comment}{// For std::sin}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <stdexcept>} \textcolor{comment}{// For std::logic\_error}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{21 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_mix_generator}{MixGenerator}}\{}
+\DoxyCodeLine{22     \textcolor{comment}{// TODO: Implement MixGenerator functionality.}}
+\DoxyCodeLine{23     \textcolor{comment}{// It should likely take two or more audio sources (or generators)}}
+\DoxyCodeLine{24     \textcolor{comment}{// and combine their output sample by sample.}}
+\DoxyCodeLine{25 \};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{31 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_repeat_generator}{RepeatGenerator}}\{}
+\DoxyCodeLine{32     \textcolor{comment}{// TODO: Implement RepeatGenerator functionality.}}
+\DoxyCodeLine{33     \textcolor{comment}{// It should likely take an audio segment (or another generator's output for a duration)}}
+\DoxyCodeLine{34     \textcolor{comment}{// and repeat it a certain number of times or for a total duration.}}
+\DoxyCodeLine{35 \};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{43 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_sine_generator}{SineGenerator}} \{}
+\DoxyCodeLine{44     \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_sine_generator_a5e2f5906e9ab6ba2e71c0d913aea8fb4}{frequency}} = 440.0; }
+\DoxyCodeLine{45     \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_sine_generator_a7c8e919bf78c8d94cd1a34c93be1cfba}{rate}} = 44100.0;    }
+\DoxyCodeLine{46 }
+\DoxyCodeLine{54     sample \mbox{\hyperlink{struct_sine_generator_aad33568e3e4d138d227464c449f82411}{operator()}}(std::size\_t i)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{55         \textcolor{keywordflow}{return} std::sin(2 * 3.14159265358979323846 * \mbox{\hyperlink{struct_sine_generator_a5e2f5906e9ab6ba2e71c0d913aea8fb4}{frequency}} * \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(i) / \mbox{\hyperlink{struct_sine_generator_a7c8e919bf78c8d94cd1a34c93be1cfba}{rate}});}
+\DoxyCodeLine{56     \}}
+\DoxyCodeLine{57 \};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{70 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Generator>}
+\DoxyCodeLine{71 \textcolor{keyword}{class }\mbox{\hyperlink{class_generator_audio}{GeneratorAudio}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_audio}{Audio}} \{}
+\DoxyCodeLine{72 \textcolor{keyword}{private}:}
+\DoxyCodeLine{73     Generator generator; }
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{keyword}{public}:}
+\DoxyCodeLine{82     \mbox{\hyperlink{class_generator_audio_aa0a02870e6b771a581a1b20eeb267906}{GeneratorAudio}}(\textcolor{keywordtype}{float} rate, \textcolor{keywordtype}{double} dur, \textcolor{keyword}{const} Generator \&gen);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{88     \mbox{\hyperlink{class_audio}{Audio}} *\mbox{\hyperlink{class_generator_audio_a07180ec2343172440708a803bffaad94}{clone}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{98     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_generator_audio_a1bc673fd828ff4725e607c691a6854a3}{operator[]}}(std::size\_t i) \textcolor{keyword}{const override};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{106     \textcolor{keywordtype}{double} \&\mbox{\hyperlink{class_generator_audio_a1bc673fd828ff4725e607c691a6854a3}{operator[]}}(std::size\_t i) \textcolor{keyword}{override};}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{113     std::ostream \&\mbox{\hyperlink{class_generator_audio_aeabb8c0e9666d954687f6bd1feaf4a88}{printToStream}}(std::ostream \&out) \textcolor{keyword}{const override};}
+\DoxyCodeLine{114 \};}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{122 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Generator>}
+\DoxyCodeLine{123 std::ostream \&\mbox{\hyperlink{class_generator_audio_aeabb8c0e9666d954687f6bd1feaf4a88}{GeneratorAudio<Generator>::printToStream}}(std::ostream \&out)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{124     \textcolor{comment}{// Accessing protected members sampleSize and sampleRate from base class Audio}}
+\DoxyCodeLine{125     out << \textcolor{stringliteral}{"{}GeneratorAudio: "{}} << this-\/>getSampleSize() << \textcolor{stringliteral}{"{} samples @ "{}} << this-\/>getSampleRate() << \textcolor{stringliteral}{"{}Hz, Generated by: "{}} << \textcolor{keyword}{typeid}(Generator).name() << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{126     \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{127 \}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{136 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Generator>}
+\DoxyCodeLine{137 \textcolor{keywordtype}{double} \&\mbox{\hyperlink{class_generator_audio_a1bc673fd828ff4725e607c691a6854a3}{GeneratorAudio<Generator>::operator[]}}(std::size\_t \textcolor{comment}{/*i*/}) \{ \textcolor{comment}{// Marked i as unused}}
+\DoxyCodeLine{138     \textcolor{keywordflow}{throw} std::logic\_error(\textcolor{stringliteral}{"{}GeneratorAudio does not support sample modification."{}});}
+\DoxyCodeLine{139 \}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{150 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Generator>}
+\DoxyCodeLine{151 \textcolor{keywordtype}{double} \mbox{\hyperlink{class_generator_audio_a1bc673fd828ff4725e607c691a6854a3}{GeneratorAudio<Generator>::operator[]}}(std::size\_t i)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{152     \textcolor{comment}{// Accessing protected member sampleSize from base class Audio}}
+\DoxyCodeLine{153     \textcolor{keywordflow}{return} (i < this-\/>getSampleSize()) ? generator(i) : 0.0;}
+\DoxyCodeLine{154 \}}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{166 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Generator>}
+\DoxyCodeLine{167 \mbox{\hyperlink{class_generator_audio_aa0a02870e6b771a581a1b20eeb267906}{GeneratorAudio<Generator>::GeneratorAudio}}(\textcolor{keywordtype}{float} rate, \textcolor{keywordtype}{double} dur, \textcolor{keyword}{const} Generator \&gen) : generator(gen) \{}
+\DoxyCodeLine{168     \mbox{\hyperlink{class_audio_a017f2ba56bab12303db8b0cfec5072c1}{setSampleRate}}(rate);}
+\DoxyCodeLine{169     \mbox{\hyperlink{class_audio_a063cac30ea3a3c9d9af36999190cf80c}{setDuration}}(dur);}
+\DoxyCodeLine{170     \textcolor{comment}{// Calculate sampleSize based on rate and duration}}
+\DoxyCodeLine{171     \mbox{\hyperlink{class_audio_a09ec986c1d63ce826d39aef09cf872ad}{setSampleSize}}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(rate * dur));}
+\DoxyCodeLine{172 \}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{179 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Generator>}
+\DoxyCodeLine{180 \mbox{\hyperlink{class_audio}{Audio}} *\mbox{\hyperlink{class_generator_audio_a07180ec2343172440708a803bffaad94}{GeneratorAudio<Generator>::clone}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{181     \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_generator_audio}{GeneratorAudio<Generator>}}(*\textcolor{keyword}{this}); \textcolor{comment}{// Uses copy constructor}}
+\DoxyCodeLine{182 \}}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DAW\_GENERATOR\_HPP}}
+
+\end{DoxyCode}

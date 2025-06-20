@@ -1,0 +1,45 @@
+\hypertarget{_track_8hpp_source}{}\doxysection{Track.\+hpp}
+\mbox{\hyperlink{_track_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by vikso on 06/06/2025.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef DAW\_TRACK\_HPP}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define DAW\_TRACK\_HPP}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_audio_8hpp}{Audio.hpp}}"{}} \textcolor{comment}{// Defines the Audio base class}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <vector>}    \textcolor{comment}{// For std::vector}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <cstddef>}   \textcolor{comment}{// For size\_t}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{class_track}{Track}} \{}
+\DoxyCodeLine{32 \textcolor{keyword}{private}:}
+\DoxyCodeLine{33     std::vector<Audio *> audio; }
+\DoxyCodeLine{35     \textcolor{keywordtype}{size\_t} audioSize;           }
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{double} frequency;           }
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{keyword}{public}:}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_track_aa6ba088d47e0c1e71937d422f1877fb7}{applyEffect}}();}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{comment}{// Potential future methods to document if added:}}
+\DoxyCodeLine{55     \textcolor{comment}{// Track(double freq);}}
+\DoxyCodeLine{56     \textcolor{comment}{// \string~Track(); // Important for managing memory of Audio pointers in `audio` vector.}}
+\DoxyCodeLine{57     \textcolor{comment}{// void addAudioClip(Audio* clip, size\_t position);}}
+\DoxyCodeLine{58     \textcolor{comment}{// void removeAudioClip(size\_t index);}}
+\DoxyCodeLine{59     \textcolor{comment}{// Audio* getAudioClip(size\_t index) const;}}
+\DoxyCodeLine{60     \textcolor{comment}{// size\_t getAudioClipCount() const;}}
+\DoxyCodeLine{61     \textcolor{comment}{// void setVolume(double volume);}}
+\DoxyCodeLine{62     \textcolor{comment}{// double getVolume() const;}}
+\DoxyCodeLine{63     \textcolor{comment}{// void setPan(double pan);}}
+\DoxyCodeLine{64     \textcolor{comment}{// double getPan() const;}}
+\DoxyCodeLine{65     \textcolor{comment}{// bool isMuted() const;}}
+\DoxyCodeLine{66     \textcolor{comment}{// void setMuted(bool muted);}}
+\DoxyCodeLine{67     \textcolor{comment}{// bool isSoloed() const;}}
+\DoxyCodeLine{68     \textcolor{comment}{// void setSoloed(bool soloed);}}
+\DoxyCodeLine{69     \textcolor{comment}{// double getDuration() const; // Would need to calculate total duration from clips}}
+\DoxyCodeLine{70 \};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DAW\_TRACK\_HPP}}
+
+\end{DoxyCode}

@@ -1,0 +1,25 @@
+var annotated_dup =
+[
+    [ "Amplify", "struct_amplify.html", "struct_amplify" ],
+    [ "AmplifyEffect", "class_amplify_effect.html", "class_amplify_effect" ],
+    [ "Audio", "class_audio.html", "class_audio" ],
+    [ "AudioCreator", "class_audio_creator.html", "class_audio_creator" ],
+    [ "AudioFactory", "class_audio_factory.html", "class_audio_factory" ],
+    [ "Effect", "class_effect.html", "class_effect" ],
+    [ "EffectCreator", "class_effect_creator.html", "class_effect_creator" ],
+    [ "EffectOperation", "class_effect_operation.html", "class_effect_operation" ],
+    [ "FadeIn", "struct_fade_in.html", "struct_fade_in" ],
+    [ "FadeInOperation", "class_fade_in_operation.html", "class_fade_in_operation" ],
+    [ "FadeOut", "struct_fade_out.html", "struct_fade_out" ],
+    [ "FileAudio", "class_file_audio.html", "class_file_audio" ],
+    [ "FileAudioCreator", "class_file_audio_creator.html", "class_file_audio_creator" ],
+    [ "GeneratorAudio", "class_generator_audio.html", "class_generator_audio" ],
+    [ "MixGenerator", "struct_mix_generator.html", null ],
+    [ "Normalize", "struct_normalize.html", "struct_normalize" ],
+    [ "Project", "class_project.html", "class_project" ],
+    [ "RepeatGenerator", "struct_repeat_generator.html", null ],
+    [ "Silence", "class_silence.html", "class_silence" ],
+    [ "SilenceCreator", "class_silence_creator.html", "class_silence_creator" ],
+    [ "SineGenerator", "struct_sine_generator.html", "struct_sine_generator" ],
+    [ "Track", "class_track.html", null ]
+];

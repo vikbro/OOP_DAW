@@ -1,0 +1,82 @@
+\hypertarget{_audio_8hpp_source}{}\doxysection{Audio.\+hpp}
+\mbox{\hyperlink{_audio_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by vikso on 21/05/2025.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef DAW\_AUDIO\_HPP}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define DAW\_AUDIO\_HPP}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{using }sample = double;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{class_audio}{Audio}} \{}
+\DoxyCodeLine{29 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{30 \textcolor{comment}{//    std::vector<double> samples;}}
+\DoxyCodeLine{31 \textcolor{comment}{//    TODO string name}}
+\DoxyCodeLine{32     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_audio_a78374f1a2d27089913544f95db64839b}{sampleRate}}; }
+\DoxyCodeLine{33     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_audio_a5f38535c4fd5dde1892a1d6795361183}{duration}};   }
+\DoxyCodeLine{34     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_audio_af7e33ecd20f1f9da9b1374a41ac2cb3e}{sampleSize}}; }
+\DoxyCodeLine{35     std::string \mbox{\hyperlink{class_audio_a53a398533a31d9048b56b05f14c93fcf}{audioName}}; }
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{keyword}{public}:}
+\DoxyCodeLine{41     \mbox{\hyperlink{class_audio_aa9d3935a2b91ab4b825bc0cb05f245ea}{Audio}}();}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{46     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_audio}{\string~ Audio}}() noexcept = default;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{55     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_audio_a063cac30ea3a3c9d9af36999190cf80c}{setDuration}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_audio_a5f38535c4fd5dde1892a1d6795361183}{duration}});}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_audio_a017f2ba56bab12303db8b0cfec5072c1}{setSampleRate}}(\textcolor{keywordtype}{float} rate);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{67     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_audio_a09ec986c1d63ce826d39aef09cf872ad}{setSampleSize}}(\textcolor{keywordtype}{size\_t} size);}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{73     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_audio_ad5702dd8afb84fb97963422088ac25c2}{getSampleRate}}() const;}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{79     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_audio_a7f6e247897f62571bec52d21430d303c}{getDuration}}() const;}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{85     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_audio_a641e7b05361d38f1a77089b68bf240af}{getSampleSize}}() const;}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{92     static \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_audio_afa14bd94cf17dbcb64130d718982554d}{isValidSampleRate}}(\textcolor{keywordtype}{float} rate);}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{99     static \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_audio_a063a2f1dcd3af7f1a67710006e43d522}{isValidSampleSize}}(\textcolor{keywordtype}{size\_t} size);}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{106     static \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_audio_a5dd6d6638c7487b4ec1d8601bdd2e7e2}{isValidDuration}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_audio_a5f38535c4fd5dde1892a1d6795361183}{duration}});}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{111     virtual \textcolor{keywordtype}{void} \mbox{\hyperlink{class_audio_af85335ff0799239ef8db01462684e07c}{print}}() const;}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{118     virtual std::ostream \&\mbox{\hyperlink{class_audio_a9e9377836628310e61c97070797f5a8f}{printToStream}}(std::ostream \&out) const = 0;}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{125     virtual \textcolor{keywordtype}{double} operator[](std::\textcolor{keywordtype}{size\_t} index) const = 0 ;}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{132     virtual \textcolor{keywordtype}{double} \&operator[](std::\textcolor{keywordtype}{size\_t} index) = 0;}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{138     virtual \mbox{\hyperlink{class_audio}{Audio}} *\mbox{\hyperlink{class_audio_a25bd410b8534c38fa82be5292d8fb6c6}{clone}}() const = 0;}
+\DoxyCodeLine{139 \};}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 \textcolor{comment}{//TODO add operator << for all Audio types}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{149 class \mbox{\hyperlink{class_audio_creator}{AudioCreator}} \{}
+\DoxyCodeLine{150 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{152     std::string \mbox{\hyperlink{class_audio_creator_a04f68e5e97f7c087467a4ee7710135be}{createCommand}};}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154 \textcolor{keyword}{public}:}
+\DoxyCodeLine{159     \mbox{\hyperlink{class_audio_creator}{AudioCreator}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *command);}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{164     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_audio_creator_aa79ce7e828652214067903aebb4aead3}{\string~AudioCreator}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{171     \textcolor{keywordtype}{bool} supportsAudio(\textcolor{keyword}{const} std::string \&s) \textcolor{keyword}{const};}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{178     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_audio}{Audio}} *\mbox{\hyperlink{class_audio_creator_a8d21e771266f35c040ba07f1c6d9fbbb}{createAudio}}(std::istream \&in) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 \};}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DAW\_AUDIO\_HPP}}
+
+\end{DoxyCode}

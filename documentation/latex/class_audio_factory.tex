@@ -1,0 +1,83 @@
+\hypertarget{class_audio_factory}{}\doxysection{Audio\+Factory Class Reference}
+\label{class_audio_factory}\index{AudioFactory@{AudioFactory}}
+
+
+A singleton factory class for creating \mbox{\hyperlink{class_audio}{Audio}} objects.  
+
+
+
+
+{\ttfamily \#include $<$Audio\+Factory.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_audio_factory_a8460875b79b22fdd98282c927a4c4fa5}{register\+Audio}} (const \mbox{\hyperlink{class_audio_creator}{Audio\+Creator}} $\ast$creator)
+\begin{DoxyCompactList}\small\item\em Registers an \mbox{\hyperlink{class_audio_creator}{Audio\+Creator}} with the factory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_audio}{Audio}} $\ast$ \mbox{\hyperlink{class_audio_factory_a9c9b9329917d46b70601e5986a90caab}{create\+Audio}} (std\+::istream \&input)
+\begin{DoxyCompactList}\small\item\em Creates an \mbox{\hyperlink{class_audio}{Audio}} object from an input stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_audio_factory}{Audio\+Factory}} \& \mbox{\hyperlink{class_audio_factory_a61110ba9fc144af732e19a493dcd7b0f}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Gets the singleton instance of the \mbox{\hyperlink{class_audio_factory}{Audio\+Factory}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A singleton factory class for creating \mbox{\hyperlink{class_audio}{Audio}} objects. 
+
+This class manages a collection of \mbox{\hyperlink{class_audio_creator}{Audio\+Creator}} objects and uses them to create instances of different \mbox{\hyperlink{class_audio}{Audio}} types. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_audio_factory_a9c9b9329917d46b70601e5986a90caab}\label{class_audio_factory_a9c9b9329917d46b70601e5986a90caab}} 
+\index{AudioFactory@{AudioFactory}!createAudio@{createAudio}}
+\index{createAudio@{createAudio}!AudioFactory@{AudioFactory}}
+\doxysubsubsection{\texorpdfstring{createAudio()}{createAudio()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_audio}{Audio}} $\ast$ Audio\+Factory\+::create\+Audio (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{input }\end{DoxyParamCaption})}
+
+
+
+Creates an \mbox{\hyperlink{class_audio}{Audio}} object from an input stream. 
+
+The factory determines the appropriate \mbox{\hyperlink{class_audio_creator}{Audio\+Creator}} based on the input stream (e.\+g., by reading a command or file header). 
+\begin{DoxyParams}{Parameters}
+{\em input} & The input stream to read audio data from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created \mbox{\hyperlink{class_audio}{Audio}} object, or nullptr if creation fails. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_audio_factory_a61110ba9fc144af732e19a493dcd7b0f}\label{class_audio_factory_a61110ba9fc144af732e19a493dcd7b0f}} 
+\index{AudioFactory@{AudioFactory}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!AudioFactory@{AudioFactory}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_audio_factory}{Audio\+Factory}} \& Audio\+Factory\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Gets the singleton instance of the \mbox{\hyperlink{class_audio_factory}{Audio\+Factory}}. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the \mbox{\hyperlink{class_audio_factory}{Audio\+Factory}} instance. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_audio_factory_a8460875b79b22fdd98282c927a4c4fa5}\label{class_audio_factory_a8460875b79b22fdd98282c927a4c4fa5}} 
+\index{AudioFactory@{AudioFactory}!registerAudio@{registerAudio}}
+\index{registerAudio@{registerAudio}!AudioFactory@{AudioFactory}}
+\doxysubsubsection{\texorpdfstring{registerAudio()}{registerAudio()}}
+{\footnotesize\ttfamily void Audio\+Factory\+::register\+Audio (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_audio_creator}{Audio\+Creator}} $\ast$}]{creator }\end{DoxyParamCaption})}
+
+
+
+Registers an \mbox{\hyperlink{class_audio_creator}{Audio\+Creator}} with the factory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em creator} & A pointer to the \mbox{\hyperlink{class_audio_creator}{Audio\+Creator}} object to register. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_audio_factory_8hpp}{Audio\+Factory.\+hpp}}\item 
+Audio\+Factory.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,81 @@
+\hypertarget{struct_fade_in}{}\doxysection{Fade\+In Struct Reference}
+\label{struct_fade_in}\index{FadeIn@{FadeIn}}
+
+
+Functor to apply a fade-\/in effect.  
+
+
+
+
+{\ttfamily \#include $<$Effect.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_fade_in_a5cc8ab3b9f0e577d43a277c3f5879d60}{Fade\+In}} (double duration, double rate)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{struct_fade_in}{Fade\+In}} effect. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct_fade_in_a348f2fe121f272ee1abcb2924b7bc000}{operator()}} (std\+::size\+\_\+t i, std\+::size\+\_\+t total\+Samples) const
+\begin{DoxyCompactList}\small\item\em Calculates the fade-\/in multiplier for a given sample. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_fade_in_a6ac1734977d2167bfe4c23d7b31a3d20}\label{struct_fade_in_a6ac1734977d2167bfe4c23d7b31a3d20}} 
+double {\bfseries fade\+Duration}
+\begin{DoxyCompactList}\small\item\em Duration of the fade in seconds. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_fade_in_a6735e94fd4e64f4c0e9f8edba3b69891}\label{struct_fade_in_a6735e94fd4e64f4c0e9f8edba3b69891}} 
+double {\bfseries sample\+Rate}
+\begin{DoxyCompactList}\small\item\em Sample rate of the audio. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functor to apply a fade-\/in effect. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_fade_in_a5cc8ab3b9f0e577d43a277c3f5879d60}\label{struct_fade_in_a5cc8ab3b9f0e577d43a277c3f5879d60}} 
+\index{FadeIn@{FadeIn}!FadeIn@{FadeIn}}
+\index{FadeIn@{FadeIn}!FadeIn@{FadeIn}}
+\doxysubsubsection{\texorpdfstring{FadeIn()}{FadeIn()}}
+{\footnotesize\ttfamily Fade\+In\+::\+Fade\+In (\begin{DoxyParamCaption}\item[{double}]{duration,  }\item[{double}]{rate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a \mbox{\hyperlink{struct_fade_in}{Fade\+In}} effect. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em duration} & Duration of the fade in seconds. \\
+\hline
+{\em rate} & Sample rate of the audio. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_fade_in_a348f2fe121f272ee1abcb2924b7bc000}\label{struct_fade_in_a348f2fe121f272ee1abcb2924b7bc000}} 
+\index{FadeIn@{FadeIn}!operator()@{operator()}}
+\index{operator()@{operator()}!FadeIn@{FadeIn}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily double Fade\+In\+::operator() (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{std\+::size\+\_\+t}]{total\+Samples }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculates the fade-\/in multiplier for a given sample. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The current sample index. \\
+\hline
+{\em total\+Samples} & The total number of samples in the audio (unused in current logic but kept for potential future use). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The fade-\/in multiplier (0.\+0 to 1.\+0). 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The logic for fade-\/in depends on the current sample index {\ttfamily i} and the calculated {\ttfamily fade\+Samples}. If {\ttfamily i} is beyond {\ttfamily fade\+Samples}, the multiplier is 1.\+0 (full volume). Otherwise, it\textquotesingle{}s a linear ramp from 0.\+0 to 1.\+0. 
+\end{DoxyNote}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_effect_8hpp}{Effect.\+hpp}}\end{DoxyCompactItemize}

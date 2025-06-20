@@ -1,0 +1,10 @@
+<map id="Project.hpp" name="Project.hpp">
+<area shape="rect" id="node1" title="Defines the Project class for managing a collection of audio tracks." coords="168,5,256,32"/>
+<area shape="rect" id="node2" href="$_track_8hpp.html" title="Defines the Track class for managing a sequence of audio segments." coords="173,80,251,107"/>
+<area shape="rect" id="node3" href="$_audio_8hpp.html" title="Defines the Audio and AudioCreator classes for audio processing." coords="172,155,252,181"/>
+<area shape="rect" id="node4" title=" " coords="5,229,61,256"/>
+<area shape="rect" id="node5" title=" " coords="86,229,151,256"/>
+<area shape="rect" id="node6" title=" " coords="176,229,248,256"/>
+<area shape="rect" id="node7" title=" " coords="273,229,327,256"/>
+<area shape="rect" id="node8" title=" " coords="352,229,421,256"/>
+</map>

@@ -1,0 +1,39 @@
+\hypertarget{_audio_factory_8hpp_source}{}\doxysection{Audio\+Factory.\+hpp}
+\mbox{\hyperlink{_audio_factory_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by vikso on 22/05/2025.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef DAW\_AUDIOFACTORY\_HPP}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define DAW\_AUDIOFACTORY\_HPP}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_audio_8hpp}{Audio.hpp}}"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{class_audio_factory}{AudioFactory}} \{}
+\DoxyCodeLine{22 \textcolor{keyword}{private}:}
+\DoxyCodeLine{24     std::vector<const AudioCreator *> creators;}
+\DoxyCodeLine{26     \textcolor{keywordtype}{size\_t} size;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{33     \textcolor{keyword}{const} \mbox{\hyperlink{class_audio_creator}{AudioCreator}} *getCreator(\textcolor{keyword}{const} std::string \&str) \textcolor{keyword}{const};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{38     \mbox{\hyperlink{class_audio_factory}{AudioFactory}}();}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{43     \mbox{\hyperlink{class_audio_factory}{AudioFactory}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_audio_factory}{AudioFactory}} \&other) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{48     \mbox{\hyperlink{class_audio_factory}{AudioFactory}} \&operator=(\textcolor{keyword}{const} \mbox{\hyperlink{class_audio_factory}{AudioFactory}} \&other) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{keyword}{public}:}
+\DoxyCodeLine{56     \textcolor{keyword}{static} \mbox{\hyperlink{class_audio_factory}{AudioFactory}} \&\mbox{\hyperlink{class_audio_factory_a61110ba9fc144af732e19a493dcd7b0f}{getInstance}}();}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_audio_factory_a8460875b79b22fdd98282c927a4c4fa5}{registerAudio}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_audio_creator}{AudioCreator}} *creator);}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{72     \mbox{\hyperlink{class_audio}{Audio}} *\mbox{\hyperlink{class_audio_factory_a9c9b9329917d46b70601e5986a90caab}{createAudio}}(std::istream \&input);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DAW\_AUDIOFACTORY\_HPP}}
+
+\end{DoxyCode}
