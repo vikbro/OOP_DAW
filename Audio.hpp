@@ -22,6 +22,7 @@ protected:
     float sampleRate;
     double duration;
     size_t sampleSize;
+    std::string audioName;
 
 public:
     Audio();
