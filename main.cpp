@@ -7,13 +7,13 @@
 int main() {
     try {
         // Create a dummy PESEN.txt, as in the original main
-        std::ofstream oFile("PESEN.txt");
-        if (oFile.is_open()) {
-            oFile << "30 " << "4 " << "5 " << 10 << " " << 10 << " " << 10 << " " << 10 << " " << 10;
-            oFile.close();
-        } else {
-            std::cerr << "Failed to open PESEN.txt for writing." << std::endl;
-        }
+//        std::ofstream oFile("PESEN.txt");
+//        if (oFile.is_open()) {
+//            oFile << "30 " << "4 " << "5 " << 10 << " " << 10 << " " << 10 << " " << 10 << " " << 10;
+//            oFile.close();
+//        } else {
+//            std::cerr << "Failed to open PESEN.txt for writing." << std::endl;
+//        }
 
         // Demonstrate Silence module
         std::cout << "Demonstrating Silence object:" << std::endl;

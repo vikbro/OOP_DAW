@@ -1,6 +1,8 @@
 #include "FileAudio.hpp"
-#include <fstream>     // For std::ifstream, std::ofstream
-#include <string>      // For std::string
+//#include <fstream>     // For std::ifstream, std::ofstream
+//#include <string>      // For std::string
+
+//Helped figuring out the WAV format: https://www.youtube.com/watch?v=rHqkeLxAsTc
 
 // Helper function to get file extension
 static std::string getFileExtension(const std::string& filePath) {
@@ -71,7 +73,7 @@ void FileAudio::writeTXT(const char *fileName) const {
         for (size_t i = 0; i < this->getSampleSize(); ++i) {
             file << this->samples[i] << (i == this->getSampleSize() - 1 ? "" : " ");
         }
-        file << "\n"; // Add a final newline for clarity
+        file << "\n";
 
         file.close();
     } catch (const std::exception& ex) {
@@ -105,8 +107,8 @@ FileAudio *FileAudio::clone() const {
 
 std::ostream &FileAudio::printToStream(std::ostream &out) const {
     out << this->getDuration() << '\t' << this->getSampleRate() << '\t' << this->getSampleSize() << '\t';
-    for (size_t i = 0; i < this->getSampleSize(); ++i) { // Use size_t for loop
-        out << this->samples[i] << (i == this->getSampleSize() - 1 ? "" : " "); // Use this->getSampleSize()
+    for (size_t i = 0; i < this->getSampleSize(); ++i) {
+        out << this->samples[i] << (i == this->getSampleSize() - 1 ? "" : " ");
     }
     out << std::endl;
     return out;

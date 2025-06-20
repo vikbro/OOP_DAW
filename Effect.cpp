@@ -74,13 +74,13 @@ Audio* EffectCreator::createAudio(std::istream& in) const {
             // when their operation structs and Effect specializations (if needed) are defined.
         else {
             // Consume the rest of the line for an unknown effect type to avoid parsing errors later.
-            in.clear(); // Clear error flags in case effectType was valid but unrecognised, then ignore.
+            in.clear();
             in.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             throw std::runtime_error("EffectCreator: Unknown effect type: " + effectType);
         }
     } catch (...) {
-        delete baseAudio; // IMPORTANT: Clean up baseAudio if it was allocated but not successfully passed to an Effect object.
-        throw; // Re-throw the exception.
+        delete baseAudio;
+        throw;
     }
 }
 

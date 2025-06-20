@@ -13,7 +13,6 @@
  *
  * A track consists of a sequence of `Audio` objects (clips or segments).
  * It might also have track-specific properties like volume, pan, effects, etc.
- * (though not all are explicitly defined in this version).
  *
  * @note TODO: Consider whether `Track` itself should also inherit from `Audio`.
  *       This would allow tracks to be treated as composite audio objects,
