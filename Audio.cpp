@@ -5,7 +5,7 @@
 #include "Audio.hpp"
 #include "AudioFactory.hpp"
 
-Audio::Audio() : duration(0), sampleRate(0), sampleSize(0) {
+Audio::Audio() : sampleRate(0.0f), duration(0.0), sampleSize(0) {
 
 }
 

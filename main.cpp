@@ -12,14 +12,14 @@ int main() {
         oFile.close();
 
 //        std::cout << std::filesystem::current_path() << std::endl;
-        FileAudio::writeWAV("sin.wav");
+        FileAudio f("sin.wav");
         Silence s(10, 5);
         s.printToStream(std::cout);
 
 //        std::string cmd = "FILE SONG.txt";
 //        std::stringstream cmdStream(cmd);
 //        std::string cmd = "FILE SONG.txt";
-        std::stringstream cmdStream("FILE SONG.txt");
+        std::stringstream cmdStream("FILE sin.wav");
 
         Audio *file = AudioFactory::getInstance().createAudio(cmdStream);
 

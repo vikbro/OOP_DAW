@@ -16,7 +16,9 @@ private:
     static void writeAsBytes(std::ostream& file, int value, int byteSize);
 
 public:
+    FileAudio(); // Default constructor
     FileAudio(const char* fileName) ;
+    FileAudio(const Audio& existingAudio);
 //    FileAudio(const std::string& fileName);
 
     double operator[](size_t index) const override;
@@ -28,7 +30,7 @@ public:
     void readWAV(const char* fileName);
 
     void writeTXT(const char* fileName) const;
-    static void writeWAV(const char* fileName);
+    void writeWAV(const char* fileName) const;
 
     std::ostream &printToStream(std::ostream &out) const override;
     void print() const override;
